@@ -9,6 +9,7 @@ import csw.messages.scaladsl.TopLevelActorMessage
 import csw.services.command.scaladsl.CommandResponseManager
 import csw.services.location.scaladsl.LocationService
 import csw.services.logging.scaladsl.LoggerFactory
+import scala.concurrent.{ExecutionContextExecutor, Future}
 
 class $name;format="Camel"$HcdHandlers(
     ctx: ActorContext[TopLevelActorMessage],

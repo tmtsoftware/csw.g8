@@ -1,4 +1,3 @@
-import Libs._
 import org.scalafmt.sbt.ScalafmtPlugin.autoImport.scalafmtOnCompile
 import sbt.Keys._
 import sbt._
@@ -25,7 +24,7 @@ object Common extends AutoPlugin {
       "-Xlint",
       "-Yno-adapted-args",
       "-Ywarn-dead-code",
-      "-Xfuture",
+      "-Xfuture"
     ),
     javacOptions in (Compile, doc) ++= Seq("-Xdoclint:none"),
     testOptions in Test ++= Seq(
@@ -35,11 +34,12 @@ object Common extends AutoPlugin {
       // -a Show stack traces and exception class name for AssertionErrors.
       Tests.Argument(TestFrameworks.JUnit, "-v", "-a")
     ),
+    resolvers += "twtmt-maven" at "http://dl.bintray.com/twtmt/maven/",
     version := "$version$",
     fork := true,
     parallelExecution in Test := false,
     autoCompilerPlugins := true,
-    if (formatOnCompile) scalafmtOnCompile := true else scalafmtOnCompile := false,
+    if (formatOnCompile) scalafmtOnCompile := true else scalafmtOnCompile := false
   )
 
   private def formatOnCompile = sys.props.get("format.on.compile") match {
