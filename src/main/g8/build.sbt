@@ -13,3 +13,7 @@ lazy val `$deploy_module$` = project
   .settings(
     libraryDependencies ++= Dependencies.$name$Deploy
   )
+  .dependsOn(
+    `$assembly_module$`,
+    `$hcd_module$`
+  )
