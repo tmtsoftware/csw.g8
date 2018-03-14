@@ -1,12 +1,12 @@
 
 lazy val `$assembly_module$` = project
   .settings(
-    libraryDependencies ++= Dependencies.$name$Assembly
+    libraryDependencies ++= Dependencies.$name;format="Camel"$Assembly
   )
 
 lazy val `$hcd_module$` = project
   .settings(
-    libraryDependencies ++= Dependencies.$name$Hcd
+    libraryDependencies ++= Dependencies.$name;format="Camel"$Hcd
   )
 
 lazy val `$deploy_module$` = project
@@ -16,5 +16,5 @@ lazy val `$deploy_module$` = project
   )
   .enablePlugins(JavaAppPackaging)
   .settings(
-    libraryDependencies ++= Dependencies.$name$Deploy
+    libraryDependencies ++= Dependencies.$name;format="Camel"$Deploy
   )
