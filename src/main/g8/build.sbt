@@ -10,10 +10,11 @@ lazy val `$hcd_module$` = project
   )
 
 lazy val `$deploy_module$` = project
-  .settings(
-    libraryDependencies ++= Dependencies.$name$Deploy
-  )
   .dependsOn(
     `$assembly_module$`,
     `$hcd_module$`
+  )
+  .enablePlugins(JavaAppPackaging)
+  .settings(
+    libraryDependencies ++= Dependencies.$name$Deploy
   )
