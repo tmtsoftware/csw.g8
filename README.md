@@ -11,12 +11,12 @@ Use below command for creating new project:
 
 This template will prompt for the following parameters. Press Enter if the default values suit you:
 
- - name [galil]: Becomes the name of the project.
- - organization [org.tmt]: Specifies the organization for this project.
- - version [0.0.1]: Specifies the component version for this project.
- - package [csw.galil]: Top level package which gets created in all subprojects.
- - deploy_module [galil-deploy]: Subproject name which holds HostConfig and ContainerCmd applications.
- - assembly_module [galil-assembly]: Subproject name which holds Assembly.
- - hcd_module [galil-hcd]: Subproject name which holds HCD.
- - scala_version [2.12.4]: Specifies the Scala version for this project.
- - csw_version [0.1.2+1482-61ea9b92]: Specifies the Common Software (csw) version for this project.
+ - `name [galil]`: Becomes the name of the project.
+ - `organization [org.tmt]`: Specifies the organization for this project.
+ - `version [0.0.1]`: Specifies the component version for this project.
+ - `package [csw.galil]`: Top level package which gets created in all subprojects.
+ - `deploy_module [galil-deploy]`: Subproject name which holds HostConfig and ContainerCmd applications.
+ - `assembly_module [galil-assembly]`: Subproject name which holds Assembly.
+ - `hcd_module [galil-hcd]`: Subproject name which holds HCD.
+ - `scala_version [2.12.4]`: Specifies the Scala version for this project.
+ - `csw_version [0.1.2+1482-61ea9b92]`: Specifies the Common Software (csw) version for this project.
