@@ -1,6 +1,6 @@
 package $package$.$assembly_module;format="word"$
 
-import akka.typed.scaladsl.ActorContext
+import akka.actor.typed.scaladsl.ActorContext
 import csw.framework.scaladsl.{ComponentBehaviorFactory, ComponentHandlers, CurrentStatePublisher}
 import csw.messages.framework.ComponentInfo
 import csw.messages.scaladsl.TopLevelActorMessage
