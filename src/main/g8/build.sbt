@@ -1,15 +1,15 @@
 
-lazy val `$assembly_module$` = project
+lazy val `$assembly_module;format="normalized"$` = project
   .settings(
     libraryDependencies ++= Dependencies.$name;format="Camel"$Assembly
   )
 
-lazy val `$hcd_module$` = project
+lazy val `$hcd_module;format="normalized"$` = project
   .settings(
     libraryDependencies ++= Dependencies.$name;format="Camel"$Hcd
   )
 
-lazy val `$deploy_module$` = project
+lazy val `$deploy_module;format="normalized"$` = project
   .dependsOn(
     `$assembly_module$`,
     `$hcd_module$`

@@ -1,7 +1,7 @@
 // To test the template run `g8` or `g8Test` from the sbt session.
 lazy val root = (project in file(".")).
   settings(
-    name := "giter8.g8",
+    name := "csw.g8",
     test in Test := {
       val _ = (g8Test in Test).toTask("").value
     },
