@@ -11,8 +11,8 @@ lazy val `$hcd_module;format="normalize"$` = project
 
 lazy val `$deploy_module;format="normalize"$` = project
   .dependsOn(
-    `$assembly_module$`,
-    `$hcd_module$`
+    `$assembly_module;format="normalize"$`,
+    `$hcd_module;format="normalize"$`
   )
   .enablePlugins(JavaAppPackaging)
   .settings(
