@@ -68,7 +68,7 @@ public class J$name;format="Camel"$HcdHandlers extends JComponentHandlers {
 
     @Override
     public CommandResponse validateCommand(ControlCommand controlCommand) {
-        return null
+        return null;
     }
 
     @Override
