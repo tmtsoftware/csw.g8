@@ -35,7 +35,7 @@ object Common extends AutoPlugin {
       Tests.Argument(TestFrameworks.JUnit, "-v", "-a")
     ),
     resolvers += Resolver.url("bintray-sbt-plugins", url("https://dl.bintray.com/sbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns),
-    resolvers += Resolver.url("twtmt-maven", url("http://dl.bintray.com/twtmt/maven/")),
+    resolvers += Resolver.bintrayRepo("twtmt", "maven"),
     version := "$version$",
     fork := true,
     parallelExecution in Test := false,
