@@ -14,7 +14,7 @@ lazy val `$deploy_module;format="normalize"$` = project
     `$assembly_module;format="normalize"$`,
     `$hcd_module;format="normalize"$`
   )
-  .enablePlugins(JavaAppPackaging)
+  .enablePlugins(JavaAppPackaging, CswBuildInfo)
   .settings(
     libraryDependencies ++= Dependencies.$name;format="Camel"$Deploy
   )
