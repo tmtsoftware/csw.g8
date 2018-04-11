@@ -1,50 +1,20 @@
-import org.scalafmt.sbt.ScalafmtPlugin.autoImport.scalafmtOnCompile
-import sbt.Keys._
-import sbt.{Resolver, url, _}
-import sbt.plugins.JvmPlugin
+import sbt.Keys.version
+import sbt.{AutoPlugin, Plugins, Setting}
 
-object Common extends AutoPlugin {
+/**
+* ==================== IMPORTANT - DO NOT CHANGE =================
+* This is required to display correct version for `$name;format="Camel"$ContainerCmdApp` and `$name;format="Camel"$HostConfigApp`
+* Basically this overrides version of ContainerCmd/HostConfig which is coming from csw-framework` with version of $name$
+*
+* */
+object CswBuildInfo extends AutoPlugin {
+  import sbtbuildinfo.BuildInfoPlugin
+  import BuildInfoPlugin.autoImport._
 
-  override def trigger: PluginTrigger = allRequirements
+  override def requires: Plugins = BuildInfoPlugin
 
-  override def requires: Plugins = JvmPlugin
-
-  override lazy val projectSettings: Seq[Setting[_]] = Seq(
-    organization := "$organization$",
-    organizationName := "TMT",
-    scalaVersion := Libs.ScalaVersion,
-    organizationHomepage := Some(url("http://www.tmt.org")),
-
-    scalacOptions ++= Seq(
-      "-encoding",
-      "UTF-8",
-      "-feature",
-      "-unchecked",
-      "-deprecation",
-      "-Xlint",
-      "-Yno-adapted-args",
-      "-Ywarn-dead-code",
-      "-Xfuture"
-    ),
-    javacOptions in (Compile, doc) ++= Seq("-Xdoclint:none"),
-    testOptions in Test ++= Seq(
-      // show full stack traces and test case durations
-      Tests.Argument("-oDF"),
-      // -v Log "test run started" / "test started" / "test run finished" events on log level "info" instead of "debug".
-      // -a Show stack traces and exception class name for AssertionErrors.
-      Tests.Argument(TestFrameworks.JUnit, "-v", "-a")
-    ),
-    resolvers += Resolver.url("bintray-sbt-plugins", url("https://dl.bintray.com/sbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns),
-    resolvers += Resolver.bintrayRepo("twtmt", "maven"),
-    version := "$version$",
-    fork := true,
-    parallelExecution in Test := false,
-    autoCompilerPlugins := true,
-    if (formatOnCompile) scalafmtOnCompile := true else scalafmtOnCompile := false
+  override def projectSettings: Seq[Setting[_]] = Seq(
+    buildInfoKeys := Seq[BuildInfoKey](version),
+    buildInfoPackage := "csw.services"
   )
-
-  private def formatOnCompile = sys.props.get("format.on.compile") match {
-    case Some("false") ⇒ false
-    case _             ⇒ true
-  }
 }
