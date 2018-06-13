@@ -7,6 +7,7 @@ import csw.framework.scaladsl.CurrentStatePublisher;
 import csw.messages.scaladsl.TopLevelActorMessage;
 import csw.messages.framework.ComponentInfo;
 import csw.services.command.scaladsl.CommandResponseManager;
+import csw.services.event.javadsl.IEventService;
 import csw.services.location.javadsl.ILocationService;
 import csw.services.logging.javadsl.JLoggerFactory;
 
@@ -19,9 +20,10 @@ public class J$name;format="Camel"$AssemblyBehaviorFactory extends JComponentBeh
             CommandResponseManager commandResponseManager,
             CurrentStatePublisher currentStatePublisher,
             ILocationService locationService,
+            IEventService eventService,
             JLoggerFactory loggerFactory
     ) {
-        return new J$name;format="Camel"$AssemblyHandlers(ctx, componentInfo, commandResponseManager, currentStatePublisher, locationService, loggerFactory);
+        return new J$name;format="Camel"$AssemblyHandlers(ctx, componentInfo, commandResponseManager, currentStatePublisher, locationService, eventService, loggerFactory);
     }
 
 }

@@ -9,6 +9,7 @@ import csw.messages.framework.ComponentInfo;
 import csw.messages.location.TrackingEvent;
 import csw.messages.scaladsl.TopLevelActorMessage;
 import csw.services.command.scaladsl.CommandResponseManager;
+import csw.services.event.javadsl.IEventService;
 import csw.services.location.javadsl.ILocationService;
 import csw.services.logging.javadsl.ILogger;
 import csw.services.logging.javadsl.JLoggerFactory;
@@ -30,6 +31,7 @@ public class J$name;format="Camel"$HcdHandlers extends JComponentHandlers {
     private CurrentStatePublisher currentStatePublisher;
     private ActorContext<TopLevelActorMessage> actorContext;
     private ILocationService locationService;
+    private IEventService eventService;
     private ComponentInfo componentInfo;
 
     J$name;format="Camel"$HcdHandlers(
@@ -38,14 +40,16 @@ public class J$name;format="Camel"$HcdHandlers extends JComponentHandlers {
           CommandResponseManager commandResponseManager,
           CurrentStatePublisher currentStatePublisher,
           ILocationService locationService,
+          IEventService eventService,
           JLoggerFactory loggerFactory
     ) {
-        super(ctx, componentInfo, commandResponseManager, currentStatePublisher, locationService, loggerFactory);
+        super(ctx, componentInfo, commandResponseManager, currentStatePublisher, locationService, eventService, loggerFactory);
         this.currentStatePublisher = currentStatePublisher;
         this.log = loggerFactory.getLogger(getClass());
         this.commandResponseManager = commandResponseManager;
         this.actorContext = ctx;
         this.locationService = locationService;
+        this.eventService = eventService;
         this.componentInfo = componentInfo;
     }
 
