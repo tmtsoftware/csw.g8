@@ -11,6 +11,7 @@ import csw.messages.location.TrackingEvent
 import csw.services.command.CommandResponseManager
 import csw.services.event.api.scaladsl.EventService
 import csw.services.location.scaladsl.LocationService
+import csw.services.alarm.api.scaladsl.AlarmService
 import csw.services.logging.scaladsl.LoggerFactory
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -30,8 +31,9 @@ class $name;format="Camel"$AssemblyHandlers(
     currentStatePublisher: CurrentStatePublisher,
     locationService: LocationService,
     eventService: EventService,
+    alarmService: AlarmService,
     loggerFactory: LoggerFactory
-) extends ComponentHandlers(ctx, componentInfo, commandResponseManager, currentStatePublisher, locationService, eventService, loggerFactory) {
+) extends ComponentHandlers(ctx, componentInfo, commandResponseManager, currentStatePublisher, locationService, eventService, alarmService, loggerFactory) {
 
   implicit val ec: ExecutionContextExecutor = ctx.executionContext
   private val log = loggerFactory.getLogger
