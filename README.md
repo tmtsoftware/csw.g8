@@ -19,5 +19,5 @@ This template will prompt for the following parameters. Press Enter if the defau
  - `deploy_module [galil-deploy]`: Subproject name which holds HostConfig and ContainerCmd applications.
  - `assembly_module [galil-assembly]`: Subproject name which holds Assembly.
  - `hcd_module [galil-hcd]`: Subproject name which holds HCD.
- - `scala_version [2.12.4]`: Specifies the Scala version for this project.
- - `csw_version [0.1.2+1482-61ea9b92]`: Specifies the Common Software (csw) version for this project.
+ - `scala_version [2.12.6]`: Specifies the Scala version for this project.
+ - `csw_version [0.5.0]`: Specifies the Common Software (csw) version for this project.
