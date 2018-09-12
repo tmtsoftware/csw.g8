@@ -2,20 +2,13 @@
 package $package$.$hcd_module;format="word"$
 
 import akka.actor.typed.scaladsl.ActorContext
-import csw.framework.CurrentStatePublisher
+import csw.framework.models.CswContext
 import csw.framework.scaladsl.ComponentHandlers
 import csw.messages.TopLevelActorMessage
 import csw.messages.commands.{CommandResponse, ControlCommand}
-import csw.messages.framework.ComponentInfo
-import csw.messages.location.TrackingEvent
-import csw.services.command.CommandResponseManager
-import csw.services.event.api.scaladsl.EventService
-import csw.services.alarm.api.scaladsl.AlarmService
-import csw.services.location.scaladsl.LocationService
-import csw.services.logging.scaladsl.LoggerFactory
+import csw.services.location.api.models.TrackingEvent
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
-
 /**
  * Domain specific logic should be written in below handlers.
  * This handlers gets invoked when component receives messages/commands from other component/entity.
@@ -26,17 +19,11 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
  */
 class $name;format="Camel"$HcdHandlers(
     ctx: ActorContext[TopLevelActorMessage],
-    componentInfo: ComponentInfo,
-    commandResponseManager: CommandResponseManager,
-    currentStatePublisher: CurrentStatePublisher,
-    locationService: LocationService,
-    eventService: EventService,
-    alarmService: AlarmService,
-    loggerFactory: LoggerFactory
-) extends ComponentHandlers(ctx, componentInfo, commandResponseManager, currentStatePublisher, locationService, eventService, alarmService, loggerFactory) {
+    cswCtx: CswContext
+ ) extends ComponentHandlers(ctx, cswCtx) {
 
   implicit val ec: ExecutionContextExecutor = ctx.executionContext
-  private val log = loggerFactory.getLogger
+  private val log = cswCtx.loggerFactory.getLogger
 
   override def initialize(): Future[Unit] = ???
 
