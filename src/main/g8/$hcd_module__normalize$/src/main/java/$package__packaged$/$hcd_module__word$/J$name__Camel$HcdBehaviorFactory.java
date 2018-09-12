@@ -13,7 +13,7 @@ public class J$name;format="Camel"$HcdBehaviorFactory extends JComponentBehavior
             ActorContext<TopLevelActorMessage> ctx,
             JCswContext cswCtx
     ) {
-        return new JSampleHcdHandlers(ctx, cswCtx);
+        return new J$name;format="Camel"$HcdHandlers(ctx, cswCtx);
     }
 
 }

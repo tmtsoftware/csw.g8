@@ -11,6 +11,6 @@ class $name;format="Camel"$HcdBehaviorFactory extends ComponentBehaviorFactory {
       ctx: ActorContext[TopLevelActorMessage],
       cswCtx: CswContext
   ): ComponentHandlers =
-    new SampleHcdHandlers(ctx, cswCtx)
+    new $name;format="Camel"$HcdHandlers(ctx, cswCtx)
 
 }
