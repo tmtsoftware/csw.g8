@@ -1,19 +1,12 @@
 package $package$.$assembly_module;format="word"$;
 
 import akka.actor.typed.javadsl.ActorContext;
-import csw.framework.CurrentStatePublisher;
 import csw.framework.javadsl.JComponentHandlers;
+import csw.framework.models.JCswContext;
 import csw.messages.TopLevelActorMessage;
 import csw.messages.commands.CommandResponse;
 import csw.messages.commands.ControlCommand;
-import csw.messages.framework.ComponentInfo;
-import csw.messages.location.TrackingEvent;
-import csw.services.command.CommandResponseManager;
-import csw.services.event.api.javadsl.IEventService;
-import csw.services.alarm.api.javadsl.IAlarmService;
-import csw.services.location.javadsl.ILocationService;
-import csw.services.logging.javadsl.ILogger;
-import csw.services.logging.javadsl.JLoggerFactory;
+import csw.services.location.api.models.TrackingEvent;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -27,34 +20,14 @@ import java.util.concurrent.CompletableFuture;
  */
 public class J$name;format="Camel"$AssemblyHandlers extends JComponentHandlers {
 
-    private ILogger log;
-    private CommandResponseManager commandResponseManager;
-    private CurrentStatePublisher currentStatePublisher;
-    private ActorContext<TopLevelActorMessage> actorContext;
-    private ILocationService locationService;
-    private IEventService eventService;
-    private IAlarmService alarmService;
-    private ComponentInfo componentInfo;
+    private JCswContext cswCtx;
 
     J$name;format="Camel"$AssemblyHandlers(
             ActorContext<TopLevelActorMessage> ctx,
-            ComponentInfo componentInfo,
-            CommandResponseManager commandResponseManager,
-            CurrentStatePublisher currentStatePublisher,
-            ILocationService locationService,
-            IEventService eventService,
-            IAlarmService alarmService,
-            JLoggerFactory loggerFactory
+            JCswContext cswCtx
     ) {
-        super(ctx, componentInfo, commandResponseManager, currentStatePublisher, locationService, eventService, alarmService, loggerFactory);
-        this.currentStatePublisher = currentStatePublisher;
-        this.log = loggerFactory.getLogger(getClass());
-        this.commandResponseManager = commandResponseManager;
-        this.actorContext = ctx;
-        this.locationService = locationService;
-        this.eventService = eventService;
-        this.alarmService = alarmService;
-        this.componentInfo = componentInfo;
+        super(ctx, cswCtx);
+        this.cswCtx = cswCtx;
     }
 
     @Override
