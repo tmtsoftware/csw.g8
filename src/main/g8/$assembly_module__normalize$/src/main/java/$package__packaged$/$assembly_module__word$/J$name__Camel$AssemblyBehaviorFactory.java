@@ -13,7 +13,7 @@ public class J$name;format="Camel"$AssemblyBehaviorFactory extends JComponentBeh
         ActorContext<TopLevelActorMessage> ctx,
         JCswContext cswCtx
     ) {
-        return new JSampleAssemblyHandlers(ctx, cswCtx);
+        return new J$name;format="Camel"$AssemblyHandlers(ctx, cswCtx);
     }
 
 }

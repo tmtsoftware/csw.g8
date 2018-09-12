@@ -12,6 +12,6 @@ class $name;format="Camel"$AssemblyBehaviorFactory extends ComponentBehaviorFact
       ctx: ActorContext[TopLevelActorMessage],
       cswCtx: CswContext
   ): ComponentHandlers =
-    new SampleAssemblyHandlers(ctx, cswCtx)
+    new $name;format="Camel"$AssemblyHandlers(ctx, cswCtx)
 
 }
