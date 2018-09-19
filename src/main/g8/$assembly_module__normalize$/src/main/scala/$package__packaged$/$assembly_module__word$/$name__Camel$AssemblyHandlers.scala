@@ -4,9 +4,9 @@ package $package$.$assembly_module;format="word"$
 import akka.actor.typed.scaladsl.ActorContext
 import csw.framework.models.CswContext
 import csw.framework.scaladsl.ComponentHandlers
-import csw.messages.TopLevelActorMessage
-import csw.messages.commands.{CommandResponse, ControlCommand}
-import csw.services.location.api.models.TrackingEvent
+import csw.command.messages.TopLevelActorMessage
+import csw.params.commands.{CommandResponse, ControlCommand}
+import csw.location.api.models.TrackingEvent
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
@@ -18,10 +18,7 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
  * and if validation is successful, then onSubmit hook gets invoked.
  * You can find more information on this here : https://tmtsoftware.github.io/csw-prod/framework.html
  */
-class $name;format="Camel"$AssemblyHandlers(
-    ctx: ActorContext[TopLevelActorMessage],
-    cswCtx: CswContext
-) extends ComponentHandlers(ctx,cswCtx) {
+class $name;format="Camel"$AssemblyHandlers(ctx: ActorContext[TopLevelActorMessage], cswCtx: CswContext) extends ComponentHandlers(ctx,cswCtx) {
 
   implicit val ec: ExecutionContextExecutor = ctx.executionContext
   private val log = cswCtx.loggerFactory.getLogger

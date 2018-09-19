@@ -3,10 +3,10 @@ package $package$.$assembly_module;format="word"$;
 import akka.actor.typed.javadsl.ActorContext;
 import csw.framework.javadsl.JComponentHandlers;
 import csw.framework.models.JCswContext;
-import csw.messages.TopLevelActorMessage;
-import csw.messages.commands.CommandResponse;
-import csw.messages.commands.ControlCommand;
-import csw.services.location.api.models.TrackingEvent;
+import csw.command.messages.TopLevelActorMessage;
+import csw.params.commands.CommandResponse;
+import csw.params.commands.ControlCommand;
+import csw.location.api.models.TrackingEvent;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -22,10 +22,7 @@ public class J$name;format="Camel"$AssemblyHandlers extends JComponentHandlers {
 
     private JCswContext cswCtx;
 
-    J$name;format="Camel"$AssemblyHandlers(
-            ActorContext<TopLevelActorMessage> ctx,
-            JCswContext cswCtx
-    ) {
+    J$name;format="Camel"$AssemblyHandlers(ActorContext<TopLevelActorMessage> ctx,JCswContext cswCtx) {
         super(ctx, cswCtx);
         this.cswCtx = cswCtx;
     }
