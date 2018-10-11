@@ -36,6 +36,7 @@ object Common extends AutoPlugin {
     ),
     resolvers += Resolver.url("bintray-sbt-plugins", url("https://dl.bintray.com/sbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns),
     resolvers += Resolver.bintrayRepo("twtmt", "maven"),
+    resolvers += "jitpack" at "https://jitpack.io",
     version := "$version$",
     fork := true,
     parallelExecution in Test := false,

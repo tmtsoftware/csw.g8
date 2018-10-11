@@ -13,10 +13,5 @@ object Libs {
 object CSW {
   val Version = "$csw_version$"
 
-  val `csw-location`      = "org.tmt" %% "csw-location"      % Version
-  val `csw-config-client` = "org.tmt" %% "csw-config-client" % Version
-  val `csw-logging`       = "org.tmt" %% "csw-logging"       % Version
-  val `csw-framework`     = "org.tmt" %% "csw-framework"     % Version
-  val `csw-command`       = "org.tmt" %% "csw-command"       % Version
-  val `csw-messages`      = "org.tmt" %% "csw-messages"      % Version
+  val `csw-framework` = "com.github.tmtsoftware.csw" %% "csw-framework" % Version
 }
