@@ -1,12 +1,12 @@
 package $package$.$assembly_module;format="word"$;
 
 import akka.actor.typed.javadsl.ActorContext;
+import csw.command.messages.TopLevelActorMessage;
 import csw.framework.javadsl.JComponentHandlers;
 import csw.framework.models.JCswContext;
-import csw.command.messages.TopLevelActorMessage;
+import csw.location.api.models.TrackingEvent;
 import csw.params.commands.CommandResponse;
 import csw.params.commands.ControlCommand;
-import csw.location.api.models.TrackingEvent;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -47,13 +47,13 @@ public class J$name;format="Camel"$AssemblyHandlers extends JComponentHandlers {
     }
 
     @Override
-    public CommandResponse validateCommand(ControlCommand controlCommand) {
-        return null;
+    public CommandResponse.ValidateCommandResponse validateCommand(ControlCommand controlCommand) {
+        return new CommandResponse.Accepted(controlCommand.runId());
     }
 
     @Override
-    public void onSubmit(ControlCommand controlCommand) {
-
+    public CommandResponse.SubmitResponse onSubmit(ControlCommand controlCommand) {
+        return new CommandResponse.Completed(controlCommand.runId());
     }
 
     @Override

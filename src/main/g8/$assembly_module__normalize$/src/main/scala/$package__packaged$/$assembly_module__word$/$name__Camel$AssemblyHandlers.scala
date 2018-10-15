@@ -27,9 +27,9 @@ class $name;format="Camel"$AssemblyHandlers(ctx: ActorContext[TopLevelActorMessa
 
   override def onLocationTrackingEvent(trackingEvent: TrackingEvent): Unit = ???
 
-  override def validateCommand(controlCommand: ControlCommand): CommandResponse = ???
+  override def validateCommand(controlCommand: ControlCommand): CommandResponse.ValidateCommandResponse = ???
 
-  override def onSubmit(controlCommand: ControlCommand): Unit = ???
+  override def onSubmit(controlCommand: ControlCommand): CommandResponse.SubmitResponse = ???
 
   override def onOneway(controlCommand: ControlCommand): Unit = ???
 
