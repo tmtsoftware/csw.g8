@@ -1,7 +1,7 @@
 # $name$
 
 This project implements an HCD (Hardware Control Daemon) and Assembly using 
-TMT Common Software ([CSW](https://github.com/tmtsoftware/csw-prod)) APIs. 
+TMT Common Software ([CSW](https://github.com/tmtsoftware/csw)) APIs. 
 
 ## Subprojects
 
@@ -12,7 +12,7 @@ TMT Common Software ([CSW](https://github.com/tmtsoftware/csw-prod)) APIs.
 ## Build Instructions
 
 The build is based on sbt and depends on libraries published to bintray from the 
-[csw-prod](https://github.com/tmtsoftware/csw-prod) project.
+[csw](https://github.com/tmtsoftware/csw) project.
 
 See [here](https://www.scala-sbt.org/1.0/docs/Setup.html) for instructions on installing sbt.
 
@@ -36,7 +36,7 @@ If you don't specify the network interface this way, a default will be chosen, w
 the one you expect. 
 
 Before running any components, follow below steps:
- - Download csw-apps zip from https://github.com/tmtsoftware/csw-prod/releases.
+ - Download csw-apps zip from https://github.com/tmtsoftware/csw/releases.
  - Unzip the downloaded zip
  - Go to the bin directory where you will find `csw-services.sh` script.
  - Run `./csw_services.sh --help` to see more information
