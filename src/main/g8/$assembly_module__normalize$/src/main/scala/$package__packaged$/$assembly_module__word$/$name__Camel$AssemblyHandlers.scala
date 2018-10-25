@@ -38,20 +38,29 @@ class $name;format="Camel"$AssemblyHandlers(
   implicit val ec: ExecutionContextExecutor = ctx.executionContext
   private val log = loggerFactory.getLogger
 
-  override def initialize(): Future[Unit] = ???
+  override def initialize(): Future[Unit] = {
+    Future.unit
+  }
 
-  override def onLocationTrackingEvent(trackingEvent: TrackingEvent): Unit = ???
+  override def onLocationTrackingEvent(trackingEvent: TrackingEvent): Unit = {
+  }
 
-  override def validateCommand(controlCommand: ControlCommand): CommandResponse = ???
+  override def validateCommand(controlCommand: ControlCommand): CommandResponse = CommandResponse.Completed(controlCommand.runId)
 
-  override def onSubmit(controlCommand: ControlCommand): Unit = ???
+  override def onSubmit(controlCommand: ControlCommand): Unit = {
+  }
 
-  override def onOneway(controlCommand: ControlCommand): Unit = ???
+  override def onOneway(controlCommand: ControlCommand): Unit = {
+  }
 
-  override def onShutdown(): Future[Unit] = ???
+  override def onShutdown(): Future[Unit] = {
+    Future.unit
+  }
 
-  override def onGoOffline(): Unit = ???
+  override def onGoOffline(): Unit = {
+  }
 
-  override def onGoOnline(): Unit = ???
+  override def onGoOnline(): Unit = {
+  }
 
 }
