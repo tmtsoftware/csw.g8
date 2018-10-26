@@ -12,7 +12,7 @@ TMT Common Software ([CSW](https://github.com/tmtsoftware/csw)) APIs.
 ## Build Instructions
 
 The build is based on sbt and depends on libraries published to bintray from the 
-[csw-prod](https://github.com/tmtsoftware/csw) project.
+[csw](https://github.com/tmtsoftware/csw) project.
 
 See [here](https://www.scala-sbt.org/1.0/docs/Setup.html) for instructions on installing sbt.
 
