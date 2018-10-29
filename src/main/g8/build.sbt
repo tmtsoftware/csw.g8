@@ -1,4 +1,13 @@
 
+lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
+  `$assembly_module$`,
+  `$deploy_module$`
+)
+
+lazy val `$name;format="space,norm"` = project
+  .in(file("."))
+  .aggregate(aggregatedProjects: _*)
+
 lazy val `$assembly_module$` = project
   .settings(
     libraryDependencies ++= Dependencies.$name;format="Camel"$Assembly
