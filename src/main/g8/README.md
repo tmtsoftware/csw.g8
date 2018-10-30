@@ -44,6 +44,6 @@ Before running any components, follow below steps:
 
 ## Running HCD and Assembly
 
- - Run `sbt $deploy_module$/universal:packageBin`, this will create self contained zip in target/universal directory
+ - Run `sbt $deploy_module$/universal:packageBin`, this will create self contained zip in `$deploy_module$/target/universal` directory
  - Unzip generate zip and enter into bin directory
  - Run container cmd script or host config app script
