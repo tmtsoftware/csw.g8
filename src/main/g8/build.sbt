@@ -1,6 +1,7 @@
 
 lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
   `$assembly_module$`,
+  `$hcd_module$`,
   `$deploy_module$`
 )
 
