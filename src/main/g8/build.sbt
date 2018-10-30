@@ -5,7 +5,7 @@ lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
   `$deploy_module$`
 )
 
-lazy val `$name;format="space,norm"` = project
+lazy val `$name;format="space,norm"$` = project
   .in(file("."))
   .aggregate(aggregatedProjects: _*)
 
