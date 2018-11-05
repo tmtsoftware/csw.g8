@@ -21,10 +21,12 @@ import java.util.concurrent.CompletableFuture;
 public class J$name;format="Camel"$HcdHandlers extends JComponentHandlers {
 
     private JCswContext cswCtx;
+    private ILogger log;
 
     J$name;format="Camel"$HcdHandlers(ActorContext<TopLevelActorMessage> ctx,JCswContext cswCtx) {
-        super(ctx,cswCtx);
+        super(ctx, cswCtx);
         this.cswCtx = cswCtx;
+        this.log = cswCtx.loggerFactory().getLogger(getClass());
     }
 
     @Override
