@@ -5,6 +5,7 @@ import csw.command.client.messages.TopLevelActorMessage;
 import csw.framework.javadsl.JComponentHandlers;
 import csw.framework.models.JCswContext;
 import csw.location.api.models.TrackingEvent;
+import csw.logging.javadsl.ILogger;
 import csw.params.commands.CommandResponse;
 import csw.params.commands.ControlCommand;
 
