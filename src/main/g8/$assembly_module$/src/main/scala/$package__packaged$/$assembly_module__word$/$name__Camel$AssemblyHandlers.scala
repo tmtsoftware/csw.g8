@@ -21,8 +21,9 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
  */
 class $name;format="Camel"$AssemblyHandlers(ctx: ActorContext[TopLevelActorMessage], cswCtx: CswContext) extends ComponentHandlers(ctx,cswCtx) {
 
+  import cswCtx._
   implicit val ec: ExecutionContextExecutor = ctx.executionContext
-  private val log                           = cswCtx.loggerFactory.getLogger
+  private val log                           = loggerFactory.getLogger
 
   override def initialize(): Future[Unit] = { Future.unit }
 
