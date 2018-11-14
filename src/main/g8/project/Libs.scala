@@ -14,4 +14,5 @@ object CSW {
   val Version = "$csw_version$"
 
   val `csw-framework` = "com.github.tmtsoftware.csw" %% "csw-framework" % Version
+  val `csw-testkit`   = "com.github.tmtsoftware.csw" %% "csw-testkit" % Version
 }
