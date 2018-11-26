@@ -2,14 +2,14 @@ package $package$.$hcd_module;format="word"$
 
 import csw.location.api.models.Connection.AkkaConnection
 import csw.location.api.models.{ComponentId, ComponentType}
-import csw.testkit.scaladsl.CSWService.{AlarmStore, EventStore}
+import csw.testkit.scaladsl.CSWService.{AlarmServer, EventServer}
 import csw.testkit.scaladsl.ScalaTestFrameworkTestKit
 import org.scalatest.FunSuiteLike
 
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-class $name;format="Camel"$HcdTest extends ScalaTestFrameworkTestKit(AlarmStore, EventStore) with FunSuiteLike {
+class $name;format="Camel"$HcdTest extends ScalaTestFrameworkTestKit(AlarmServer, EventServer) with FunSuiteLike {
 
   import frameworkTestKit.frameworkWiring._
 

@@ -21,7 +21,7 @@ public class J$name;format="Camel"$AssemblyTest extends JUnitSuite {
 
     @ClassRule
     public static final FrameworkTestKitJunitResource testKit =
-        new FrameworkTestKitJunitResource(Arrays.asList(JCSWService.AlarmStore, JCSWService.EventStore));
+        new FrameworkTestKitJunitResource(Arrays.asList(JCSWService.AlarmServer, JCSWService.EventServer));
 
     @BeforeClass
     public static void setup() {

@@ -21,8 +21,8 @@ import java.util.concurrent.CompletableFuture;
  */
 public class J$name;format="Camel"$AssemblyHandlers extends JComponentHandlers {
 
-    private JCswContext cswCtx;
-    private ILogger log;
+    private final JCswContext cswCtx;
+    private final ILogger log;
 
     J$name;format="Camel"$AssemblyHandlers(ActorContext<TopLevelActorMessage> ctx,JCswContext cswCtx) {
         super(ctx, cswCtx);
@@ -32,7 +32,8 @@ public class J$name;format="Camel"$AssemblyHandlers extends JComponentHandlers {
 
     @Override
     public CompletableFuture<Void> jInitialize() {
-        return CompletableFuture.runAsync(() -> {
+    log.info("Initializing $name;format="word"$ assembly...");
+    return CompletableFuture.runAsync(() -> {
 
         });
     }

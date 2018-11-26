@@ -25,7 +25,10 @@ class $name;format="Camel"$AssemblyHandlers(ctx: ActorContext[TopLevelActorMessa
   implicit val ec: ExecutionContextExecutor = ctx.executionContext
   private val log                           = loggerFactory.getLogger
 
-  override def initialize(): Future[Unit] = { Future.unit }
+  override def initialize(): Future[Unit] = {
+    log.info("Initializing $name;format="word"$ assembly...")
+    Future.unit
+  }
 
   override def onLocationTrackingEvent(trackingEvent: TrackingEvent): Unit = {}
 

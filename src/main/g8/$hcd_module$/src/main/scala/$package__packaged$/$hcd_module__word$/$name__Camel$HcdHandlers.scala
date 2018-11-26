@@ -24,7 +24,10 @@ class $name;format="Camel"$HcdHandlers(ctx: ActorContext[TopLevelActorMessage], 
   implicit val ec: ExecutionContextExecutor = ctx.executionContext
   private val log                           = loggerFactory.getLogger
 
-  override def initialize(): Future[Unit] = { Future.unit }
+  override def initialize(): Future[Unit] = {
+    log.info("Initializing $name;format="word"$ HCD...")
+    Future.unit
+  }
 
   override def onLocationTrackingEvent(trackingEvent: TrackingEvent): Unit = {}
 

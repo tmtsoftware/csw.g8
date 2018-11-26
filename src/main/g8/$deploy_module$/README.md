@@ -35,5 +35,5 @@ To start $name$ Assembly and HCD, follow below steps:
  - Run container cmd script or host config app script
  - Ex.  `./$name;format="word"$-host-config-app --local ../../../../$deploy_module$/src/main/resources/$name; format="Camel"$HostConfig.conf -s ./$name; format="word"$-container-cmd-app`
 
-Note: the CSW Location Service cluster seed must be running, and appropriate environment variables set to run apps.
+Note: the CSW Location Service must be running before starting the components.
 See https://tmtsoftware.github.io/csw/apps/cswlocationserver.html .
