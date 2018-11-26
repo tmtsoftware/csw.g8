@@ -26,7 +26,7 @@ public class J$name;format="Camel"$HcdTest extends JUnitSuite {
     @BeforeClass
     public static void setup() {
         // uncomment if you want one HCD run for all tests
-        //testKit.spawnStandalone(com.typesafe.config.ConfigFactory.load("J$name;format="Camel"$HcdStandalone.conf"));
+        testKit.spawnStandalone(com.typesafe.config.ConfigFactory.load("J$name;format="Camel"$HcdStandalone.conf"));
     }
 
     @Test

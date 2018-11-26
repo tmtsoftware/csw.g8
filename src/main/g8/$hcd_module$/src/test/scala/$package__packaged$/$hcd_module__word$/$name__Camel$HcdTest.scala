@@ -16,7 +16,7 @@ class $name;format="Camel"$HcdTest extends ScalaTestFrameworkTestKit(AlarmServer
   override def beforeAll(): Unit = {
     super.beforeAll()
     // uncomment if you want one HCD run for all tests
-    //spawnStandalone(com.typesafe.config.ConfigFactory.load("$name;format="Camel"$HcdStandalone.conf"))
+    spawnStandalone(com.typesafe.config.ConfigFactory.load("$name;format="Camel"$HcdStandalone.conf"))
   }
 
   test("HCD should be locatable using Location Service") {

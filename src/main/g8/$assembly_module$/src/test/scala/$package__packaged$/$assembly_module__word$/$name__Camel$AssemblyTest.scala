@@ -17,7 +17,7 @@ class $name;format="Camel"$AssemblyTest extends ScalaTestFrameworkTestKit(AlarmS
   override def beforeAll(): Unit = {
     super.beforeAll()
     // uncomment if you want one Assembly run for all tests
-    //spawnStandalone(com.typesafe.config.ConfigFactory.load("$name;format="Camel"$AssemblyStandalone.conf"))
+    spawnStandalone(com.typesafe.config.ConfigFactory.load("$name;format="Camel"$AssemblyStandalone.conf"))
   }
 
   test("Assembly should be locatable using Location Service") {

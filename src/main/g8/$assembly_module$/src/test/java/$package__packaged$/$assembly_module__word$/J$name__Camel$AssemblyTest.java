@@ -26,7 +26,7 @@ public class J$name;format="Camel"$AssemblyTest extends JUnitSuite {
     @BeforeClass
     public static void setup() {
         // uncomment if you want one Assembly run for all tests
-        //testKit.spawnStandalone(com.typesafe.config.ConfigFactory.load("J$name;format="Camel"$AssemblyStandalone.conf"));
+        testKit.spawnStandalone(com.typesafe.config.ConfigFactory.load("J$name;format="Camel"$AssemblyStandalone.conf"));
     }
 
     @Test
