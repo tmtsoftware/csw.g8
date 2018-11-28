@@ -1,19 +1,13 @@
 package $package$.$assembly_module;format="word"$;
 
 import akka.actor.typed.javadsl.ActorContext;
-import csw.framework.CurrentStatePublisher;
+import csw.command.client.messages.TopLevelActorMessage;
 import csw.framework.javadsl.JComponentHandlers;
-import csw.messages.TopLevelActorMessage;
-import csw.messages.commands.CommandResponse;
-import csw.messages.commands.ControlCommand;
-import csw.messages.framework.ComponentInfo;
-import csw.messages.location.TrackingEvent;
-import csw.services.command.CommandResponseManager;
-import csw.services.event.api.javadsl.IEventService;
-import csw.services.alarm.api.javadsl.IAlarmService;
-import csw.services.location.javadsl.ILocationService;
-import csw.services.logging.javadsl.ILogger;
-import csw.services.logging.javadsl.JLoggerFactory;
+import csw.framework.models.JCswContext;
+import csw.location.api.models.TrackingEvent;
+import csw.logging.javadsl.ILogger;
+import csw.params.commands.CommandResponse;
+import csw.params.commands.ControlCommand;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -27,39 +21,19 @@ import java.util.concurrent.CompletableFuture;
  */
 public class J$name;format="Camel"$AssemblyHandlers extends JComponentHandlers {
 
-    private ILogger log;
-    private CommandResponseManager commandResponseManager;
-    private CurrentStatePublisher currentStatePublisher;
-    private ActorContext<TopLevelActorMessage> actorContext;
-    private ILocationService locationService;
-    private IEventService eventService;
-    private IAlarmService alarmService;
-    private ComponentInfo componentInfo;
+    private final JCswContext cswCtx;
+    private final ILogger log;
 
-    J$name;format="Camel"$AssemblyHandlers(
-            ActorContext<TopLevelActorMessage> ctx,
-            ComponentInfo componentInfo,
-            CommandResponseManager commandResponseManager,
-            CurrentStatePublisher currentStatePublisher,
-            ILocationService locationService,
-            IEventService eventService,
-            IAlarmService alarmService,
-            JLoggerFactory loggerFactory
-    ) {
-        super(ctx, componentInfo, commandResponseManager, currentStatePublisher, locationService, eventService, alarmService, loggerFactory);
-        this.currentStatePublisher = currentStatePublisher;
-        this.log = loggerFactory.getLogger(getClass());
-        this.commandResponseManager = commandResponseManager;
-        this.actorContext = ctx;
-        this.locationService = locationService;
-        this.eventService = eventService;
-        this.alarmService = alarmService;
-        this.componentInfo = componentInfo;
+    J$name;format="Camel"$AssemblyHandlers(ActorContext<TopLevelActorMessage> ctx,JCswContext cswCtx) {
+        super(ctx, cswCtx);
+        this.cswCtx = cswCtx;
+        this.log = cswCtx.loggerFactory().getLogger(getClass());
     }
 
     @Override
     public CompletableFuture<Void> jInitialize() {
-        return CompletableFuture.runAsync(() -> {
+    log.info("Initializing $name;format="word"$ assembly...");
+    return CompletableFuture.runAsync(() -> {
 
         });
     }
@@ -77,13 +51,13 @@ public class J$name;format="Camel"$AssemblyHandlers extends JComponentHandlers {
     }
 
     @Override
-    public CommandResponse validateCommand(ControlCommand controlCommand) {
-        return null;
+    public CommandResponse.ValidateCommandResponse validateCommand(ControlCommand controlCommand) {
+        return new CommandResponse.Accepted(controlCommand.runId());
     }
 
     @Override
-    public void onSubmit(ControlCommand controlCommand) {
-
+    public CommandResponse.SubmitResponse onSubmit(ControlCommand controlCommand) {
+        return new CommandResponse.Completed(controlCommand.runId());
     }
 
     @Override

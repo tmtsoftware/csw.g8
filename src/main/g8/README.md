@@ -1,49 +1,58 @@
 # $name$
 
-This project implements an HCD (Hardware Control Daemon) and Assembly using 
+This project implements an HCD (Hardware Control Daemon) and an Assembly using 
 TMT Common Software ([CSW](https://github.com/tmtsoftware/csw)) APIs. 
 
 ## Subprojects
 
 * $assembly_module$ - an assembly that talks to the $name$ HCD
 * $hcd_module$ - an HCD that talks to the $name$ hardware
-* $deploy_module$ - for starting/deploying HCD's and Assembly's
+* $deploy_module$ - for starting/deploying HCDs and assemblies
 
 ## Build Instructions
 
-The build is based on sbt and depends on libraries published to bintray from the 
+The build is based on sbt and depends on libraries generated from the 
 [csw](https://github.com/tmtsoftware/csw) project.
 
 See [here](https://www.scala-sbt.org/1.0/docs/Setup.html) for instructions on installing sbt.
 
-## Pre-requisites before running Components
+## Prerequisites for running Components
 
-Make sure that the necessary environment variables are set. For example:
+The CSW services need to be running before starting the components. 
+This is done by starting the `csw-services.sh` script, which is installed as part of the csw build.
+If you are not building csw from the sources, you can get the script as follows:
 
-* Set the environment variables (Replace interface name, IP address and port with your own values):
-```bash
-export interfaceName=enp0s31f6
-export clusterSeeds=192.168.178.77:7777
-```
-for bash shell, or 
-```csh
-setenv interfaceName enp0s31f6
-setenv clusterSeeds 192.168.178.77:7777
-```
-
-for csh or tcsh. The list of available network interfaces can be found using the _ifconfig -a_ command.
-If you don't specify the network interface this way, a default will be chosen, which might sometimes not be
-the one you expect. 
-
-Before running any components, follow below steps:
  - Download csw-apps zip from https://github.com/tmtsoftware/csw/releases.
- - Unzip the downloaded zip
+ - Unzip the downloaded zip.
  - Go to the bin directory where you will find `csw-services.sh` script.
- - Run `./csw_services.sh --help` to see more information
- - Run `./csw_services.sh start` to start location service and config server
-
-## Running HCD and Assembly
+ - Run `./csw_services.sh --help` to get more information.
+ - Run `./csw_services.sh start` to start the location service and config server.
+  
+## Building the HCD and Assembly Applications
 
  - Run `sbt $deploy_module$/universal:packageBin`, this will create self contained zip in `$deploy_module$/target/universal` directory
- - Unzip generate zip and enter into bin directory
- - Run container cmd script or host config app script
+ - Unzip the generated zip and cd into the bin directory
+ 
+Note: An alternative method is to run `sbt stage`, which installs the applications locally in ./target/universal/stage/bin.
+ 
+## Running the HCD and Assembly
+
+Run the container cmd script with arguments. For example:
+
+* Run the HCD in standalone mode with a local config file (The standalone config format is differennt than the container format):
+
+```
+./target/universal/stage/bin/$name;format="word"$-container-cmd-app --standalone --local ./src/main/resources/SampleHcdStandalone.conf
+```
+
+* Start the HCD and assembly in a container using the Java implementations:
+
+```
+./target/universal/stage/bin/$name;format="word"$-container-cmd-app --local ./src/main/resources/JSampleContainer.conf
+```
+
+* Or the Scala versions:
+
+```
+./target/universal/stage/bin/$name;format="word"$-container-cmd-app --local ./src/main/resources/SampleContainer.conf
+```

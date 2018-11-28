@@ -1,18 +1,12 @@
-
 package $package$.$hcd_module;format="word"$
 
 import akka.actor.typed.scaladsl.ActorContext
-import csw.framework.CurrentStatePublisher
+import csw.command.client.messages.TopLevelActorMessage
+import csw.framework.models.CswContext
 import csw.framework.scaladsl.ComponentHandlers
-import csw.messages.TopLevelActorMessage
-import csw.messages.commands.{CommandResponse, ControlCommand}
-import csw.messages.framework.ComponentInfo
-import csw.messages.location.TrackingEvent
-import csw.services.command.CommandResponseManager
-import csw.services.event.api.scaladsl.EventService
-import csw.services.alarm.api.scaladsl.AlarmService
-import csw.services.location.scaladsl.LocationService
-import csw.services.logging.scaladsl.LoggerFactory
+import csw.location.api.models.TrackingEvent
+import csw.params.commands.CommandResponse._
+import csw.params.commands.ControlCommand
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
@@ -24,43 +18,29 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
  * and if validation is successful, then onSubmit hook gets invoked.
  * You can find more information on this here : https://tmtsoftware.github.io/csw/commons/framework.html
  */
-class $name;format="Camel"$HcdHandlers(
-    ctx: ActorContext[TopLevelActorMessage],
-    componentInfo: ComponentInfo,
-    commandResponseManager: CommandResponseManager,
-    currentStatePublisher: CurrentStatePublisher,
-    locationService: LocationService,
-    eventService: EventService,
-    alarmService: AlarmService,
-    loggerFactory: LoggerFactory
-) extends ComponentHandlers(ctx, componentInfo, commandResponseManager, currentStatePublisher, locationService, eventService, alarmService, loggerFactory) {
+class $name;format="Camel"$HcdHandlers(ctx: ActorContext[TopLevelActorMessage], cswCtx: CswContext) extends ComponentHandlers(ctx, cswCtx) {
 
+  import cswCtx._
   implicit val ec: ExecutionContextExecutor = ctx.executionContext
-  private val log = loggerFactory.getLogger
+  private val log                           = loggerFactory.getLogger
 
   override def initialize(): Future[Unit] = {
+    log.info("Initializing $name;format="word"$ HCD...")
     Future.unit
   }
 
-  override def onLocationTrackingEvent(trackingEvent: TrackingEvent): Unit = {
-  }
+  override def onLocationTrackingEvent(trackingEvent: TrackingEvent): Unit = {}
 
-  override def validateCommand(controlCommand: ControlCommand): CommandResponse = CommandResponse.Completed(controlCommand.runId)
+  override def validateCommand(controlCommand: ControlCommand): ValidateCommandResponse = Accepted(controlCommand.runId)
 
-  override def onSubmit(controlCommand: ControlCommand): Unit = {
-  }
+  override def onSubmit(controlCommand: ControlCommand): SubmitResponse = Completed(controlCommand.runId)
 
-  override def onOneway(controlCommand: ControlCommand): Unit = {
-  }
+  override def onOneway(controlCommand: ControlCommand): Unit = {}
 
-  override def onShutdown(): Future[Unit] = {
-    Future.unit
-  }
+  override def onShutdown(): Future[Unit] = { Future.unit }
 
-  override def onGoOffline(): Unit = {
-  }
+  override def onGoOffline(): Unit = {}
 
-  override def onGoOnline(): Unit = {
-  }
+  override def onGoOnline(): Unit = {}
 
 }
