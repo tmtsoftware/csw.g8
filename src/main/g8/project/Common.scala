@@ -34,7 +34,7 @@ object Common extends AutoPlugin {
       // -a Show stack traces and exception class name for AssertionErrors.
       Tests.Argument(TestFrameworks.JUnit, "-v", "-a")
     ),
-    resolvers += "jitpack" at "https://jitpack.io",
+    resolvers += Resolver.bintrayRepo("twtmt", "maven"),
     resolvers += "bintray" at "http://jcenter.bintray.com",
     version := "$version$",
     fork := true,
