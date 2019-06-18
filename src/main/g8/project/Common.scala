@@ -36,6 +36,7 @@ object Common extends AutoPlugin {
     ),
     resolvers += Resolver.bintrayRepo("twtmt", "maven"),
     resolvers += "bintray" at "http://jcenter.bintray.com",
+    resolvers += "jitpack" at "https://jitpack.io",
     version := "$version$",
     fork := true,
     parallelExecution in Test := false,
