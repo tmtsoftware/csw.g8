@@ -1,6 +1,7 @@
 // To test the template run `g8` or `g8Test` from the sbt session.
-lazy val root = (project in file(".")).
-  settings(
+lazy val root = (project in file("."))
+  .enablePlugins(ScriptedPlugin)
+  .settings(
     name := "csw.g8",
     test in Test := {
       val _ = (g8Test in Test).toTask("").value
