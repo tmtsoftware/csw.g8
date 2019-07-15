@@ -1,7 +1,7 @@
 package $package$.$hcd_module;format="word"$
 
-import csw.location.api.models.Connection.AkkaConnection
-import csw.location.api.models.{ComponentId, ComponentType}
+import csw.location.model.Connection.AkkaConnection
+import csw.location.model.{ComponentId, ComponentType}
 import csw.testkit.scaladsl.CSWService.{AlarmServer, EventServer}
 import csw.testkit.scaladsl.ScalaTestFrameworkTestKit
 import org.scalatest.FunSuiteLike
