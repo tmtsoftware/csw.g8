@@ -3,11 +3,11 @@ import sbt._
 object Libs {
   val ScalaVersion = "$scala_version$"
 
-  val `scalatest`       = "org.scalatest"          %% "scalatest"       % "3.0.6"  //Apache License 2.0
-  val `scala-async`     = "org.scala-lang.modules" %% "scala-async"     % "0.9.7"  //BSD 3-clause "New" or "Revised" License
+  val `scalatest`       = "org.scalatest"          %% "scalatest"       % "3.0.8"  //Apache License 2.0
+  val `scala-async`     = "org.scala-lang.modules" %% "scala-async"     % "0.10.0"  //BSD 3-clause "New" or "Revised" License
   val `junit`           = "junit"                  %  "junit"           % "4.12"   //Eclipse Public License 1.0
   val `junit-interface` = "com.novocode"           %  "junit-interface" % "0.11"   //BSD 2-clause "Simplified" License
-  val `mockito-core`    = "org.mockito"            %  "mockito-core"    % "2.21.0" //MIT License
+  val `mockito-core`    = "org.mockito"            %  "mockito-core"    % "2.28.2" //MIT License
 }
 
 object CSW {
