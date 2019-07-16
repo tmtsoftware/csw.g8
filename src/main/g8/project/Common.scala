@@ -23,7 +23,6 @@ object Common extends AutoPlugin {
       "-deprecation",
       "-Xlint",
       "-Ywarn-dead-code",
-      "-Xfuture"
     ),
     javacOptions in (Compile, doc) ++= Seq("-Xdoclint:none"),
     testOptions in Test ++= Seq(
