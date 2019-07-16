@@ -22,7 +22,6 @@ object Common extends AutoPlugin {
       "-unchecked",
       "-deprecation",
       "-Xlint",
-      "-Yno-adapted-args",
       "-Ywarn-dead-code",
       "-Xfuture"
     ),
