@@ -33,7 +33,7 @@ If you are not building csw from the sources, you can get the script as follows:
  - Run `sbt $deploy_module$/universal:packageBin`, this will create self contained zip in `$deploy_module$/target/universal` directory
  - Unzip the generated zip and cd into the bin directory
  
-Note: An alternative method is to run `sbt stage`, which installs the applications locally in ./target/universal/stage/bin.
+Note: An alternative method is to run `sbt stage`, which installs the applications locally in `$deploy_module$/target/universal/stage/bin`.
  
 ## Running the HCD and Assembly
 
