@@ -8,6 +8,7 @@ import csw.location.models.TrackingEvent;
 import csw.logging.api.javadsl.ILogger;
 import csw.params.commands.CommandResponse;
 import csw.params.commands.ControlCommand;
+import csw.time.core.models.UTCTime;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -72,6 +73,16 @@ public class J$name;format="Camel"$HcdHandlers extends JComponentHandlers {
 
     @Override
     public void onGoOnline() {
+
+    }
+
+    @Override
+    public void onDiagnosticMode(UTCTime startTime, String hint){
+
+    }
+
+    @Override
+    public void onOperationsMode() {
 
     }
 }
