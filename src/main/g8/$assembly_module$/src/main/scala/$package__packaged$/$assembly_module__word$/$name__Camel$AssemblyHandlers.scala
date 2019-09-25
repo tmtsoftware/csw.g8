@@ -8,6 +8,7 @@ import csw.framework.scaladsl.ComponentHandlers
 import csw.location.models.TrackingEvent
 import csw.params.commands.CommandResponse._
 import csw.params.commands.ControlCommand
+import csw.time.core.models.UTCTime
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
@@ -43,5 +44,9 @@ class $name;format="Camel"$AssemblyHandlers(ctx: ActorContext[TopLevelActorMessa
   override def onGoOffline(): Unit = {}
 
   override def onGoOnline(): Unit = {}
+
+  override def onDiagnosticMode(startTime: UTCTime, hint: String): Unit = {}
+
+  override def onOperationsMode(): Unit = {}
 
 }
