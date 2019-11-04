@@ -7,7 +7,12 @@ object Libs {
   val `scala-async`     = "org.scala-lang.modules" %% "scala-async"     % "0.10.0"  //BSD 3-clause "New" or "Revised" License
   val `junit`           = "junit"                  %  "junit"           % "4.12"   //Eclipse Public License 1.0
   val `junit-interface` = "com.novocode"           %  "junit-interface" % "0.11"   //BSD 2-clause "Simplified" License
-  val `mockito-core`    = "org.mockito"            %  "mockito-core"    % "2.28.2" //MIT License
+  val `mockito-scala`   = "org.mockito"            %% "mockito-scala"   % "1.5.17"
+}
+
+object AkkaHttp {
+  val Version                = "10.1.10"
+  val `akka-http-spray-json` = "com.typesafe.akka" %% "akka-http-spray-json" % Version
 }
 
 object CSW {
