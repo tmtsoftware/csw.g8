@@ -9,6 +9,7 @@ import csw.logging.api.javadsl.ILogger;
 import csw.params.commands.CommandResponse;
 import csw.params.commands.ControlCommand;
 import csw.time.core.models.UTCTime;
+import csw.params.core.models.Id;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -52,17 +53,17 @@ public class J$name;format="Camel"$AssemblyHandlers extends JComponentHandlers {
     }
 
     @Override
-    public CommandResponse.ValidateCommandResponse validateCommand(ControlCommand controlCommand) {
-        return new CommandResponse.Accepted(controlCommand.runId());
+    public CommandResponse.ValidateCommandResponse validateCommand(Id runId, ControlCommand controlCommand) {
+        return new CommandResponse.Accepted(runId);
     }
 
     @Override
-    public CommandResponse.SubmitResponse onSubmit(ControlCommand controlCommand) {
-        return new CommandResponse.Completed(controlCommand.runId());
+    public CommandResponse.SubmitResponse onSubmit(Id runId, ControlCommand controlCommand) {
+        return new CommandResponse.Completed(runId);
     }
 
     @Override
-    public void onOneway(ControlCommand controlCommand) {
+    public void onOneway(Id runId, ControlCommand controlCommand) {
 
     }
 

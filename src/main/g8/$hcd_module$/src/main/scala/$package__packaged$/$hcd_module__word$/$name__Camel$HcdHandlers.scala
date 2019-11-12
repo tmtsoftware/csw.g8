@@ -8,6 +8,7 @@ import csw.location.models.TrackingEvent
 import csw.params.commands.CommandResponse._
 import csw.params.commands.ControlCommand
 import csw.time.core.models.UTCTime
+import csw.params.core.models.Id
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
@@ -32,11 +33,11 @@ class $name;format="Camel"$HcdHandlers(ctx: ActorContext[TopLevelActorMessage], 
 
   override def onLocationTrackingEvent(trackingEvent: TrackingEvent): Unit = {}
 
-  override def validateCommand(controlCommand: ControlCommand): ValidateCommandResponse = Accepted(controlCommand.runId)
+  override def validateCommand(runId: Id, controlCommand: ControlCommand): ValidateCommandResponse = Accepted(runId)
 
-  override def onSubmit(controlCommand: ControlCommand): SubmitResponse = Completed(controlCommand.runId)
+  override def onSubmit(runId: Id, controlCommand: ControlCommand): SubmitResponse = Completed(runId)
 
-  override def onOneway(controlCommand: ControlCommand): Unit = {}
+  override def onOneway(runId: Id, controlCommand: ControlCommand): Unit = {}
 
   override def onShutdown(): Future[Unit] = { Future.unit }
 
