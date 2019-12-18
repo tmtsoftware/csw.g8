@@ -1,7 +1,7 @@
 package $package$.$assembly_module;format="word"$
 
 import csw.location.models.Connection.AkkaConnection
-import csw.params.core.models.Prefix
+import csw.prefix.models.Prefix
 import csw.location.models.{ComponentId, ComponentType}
 import csw.testkit.scaladsl.CSWService.{AlarmServer, EventServer}
 import csw.testkit.scaladsl.ScalaTestFrameworkTestKit
