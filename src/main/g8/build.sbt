@@ -1,5 +1,3 @@
-import com.typesafe.sbt.SbtNativePackager.Universal
-
 lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
   `$assembly_module$`,
   `$hcd_module$`,
