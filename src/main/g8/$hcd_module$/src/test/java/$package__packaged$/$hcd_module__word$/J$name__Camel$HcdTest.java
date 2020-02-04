@@ -2,9 +2,10 @@ package $package$.$hcd_module;format="word"$;
 
 import csw.location.api.javadsl.ILocationService;
 import csw.location.api.javadsl.JComponentType;
-import csw.location.models.AkkaLocation;
-import csw.location.models.ComponentId;
-import csw.location.models.Connection;
+import csw.location.api.models.AkkaLocation;
+import csw.location.api.models.ComponentId;
+import csw.location.api.models.Connection;
+import csw.prefix.models.Prefix;
 import csw.testkit.javadsl.FrameworkTestKitJunitResource;
 import csw.testkit.javadsl.JCSWService;
 import org.junit.Assert;
@@ -31,7 +32,7 @@ public class J$name;format="Camel"$HcdTest extends JUnitSuite {
 
     @Test
     public void testHcdShouldBeLocatableUsingLocationService() throws ExecutionException, InterruptedException {
-        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId("J$name;format="Camel"$Hcd", JComponentType.HCD));
+        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.J$name;format="Camel"$Hcd"), JComponentType.HCD()));
         ILocationService locationService = testKit.jLocationService();
         AkkaLocation location = locationService.resolve(connection, Duration.ofSeconds(10)).get().get();
 
