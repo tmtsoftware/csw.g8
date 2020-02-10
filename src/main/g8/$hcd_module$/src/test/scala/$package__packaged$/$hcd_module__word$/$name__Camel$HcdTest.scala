@@ -5,12 +5,12 @@ import csw.location.api.models.{ComponentId, ComponentType}
 import csw.prefix.models.Prefix
 import csw.testkit.scaladsl.CSWService.{AlarmServer, EventServer}
 import csw.testkit.scaladsl.ScalaTestFrameworkTestKit
-import org.scalatest.FunSuiteLike
+import org.scalatest.funsuite.AnyFunSuiteLike
 
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-class $name;format="Camel"$HcdTest extends ScalaTestFrameworkTestKit(AlarmServer, EventServer) with FunSuiteLike {
+class $name;format="Camel"$HcdTest extends ScalaTestFrameworkTestKit(AlarmServer, EventServer) with AnyFunSuiteLike {
 
   import frameworkTestKit.frameworkWiring._
 
