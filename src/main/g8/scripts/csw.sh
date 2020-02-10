@@ -1,9 +1,33 @@
 #!/usr/bin/env bash
 
-CSW_VERSION=$csw_version$
+DEFAULT_CSW_VERSION=$csw_version$
 WORK_DIR="\$HOME/.csw-services"
 BOOTSTRAP_SCRIPT=\$WORK_DIR/scripts/csw-bootstrap.sh
 CSW_SERVICES_SCRIPT=\$WORK_DIR/scripts/csw-services.sh
+SCRIPT_DIR="\$(cd "\$(dirname "\${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+ROOT_DIR="\$(dirname "\$SCRIPT_DIR")"
+
+# ================================================ #
+# Read csw.version property from build.properties file
+# Use DEFAULT_CSW_VERSION if build.properties file does not exist or csw.version property does not present
+# ================================================ #
+BUILD_PROPERTIES="\$ROOT_DIR/project/build.properties"
+function read_property() {
+    if [ -f "\$BUILD_PROPERTIES" ]; then
+        grep "\${1}" \$BUILD_PROPERTIES | cut -d'=' -f2
+    else
+        return 1
+    fi
+}
+
+MAYBE_CSW_VERSION=\$(read_property 'csw.version') || echo "\$DEFAULT_CSW_VERSION"
+
+if [ -z "\$MAYBE_CSW_VERSION" ]; then
+    CSW_VERSION=\$DEFAULT_CSW_VERSION
+else
+    CSW_VERSION=\$MAYBE_CSW_VERSION
+fi
+# ================================================ #
 
 function checkout_scripts() {
     if hash svn 2>/dev/null; then
