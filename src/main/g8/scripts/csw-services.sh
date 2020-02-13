@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
+PWD="\$(cd "\$(dirname "\${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+ROOT_DIR="\$(dirname "\$BOOTSTRAP_DIR")"
+
 DEFAULT_CSW_VERSION="master-SNAPSHOT"
 
 # ================================================ #
 # Read csw.version property from build.properties file
 # Use DEFAULT_CSW_VERSION if build.properties file does not exist or csw.version property does not present
 # ================================================ #
-BUILD_PROPERTIES="../project/build.properties"
+BUILD_PROPERTIES="\$ROOT_DIR/project/build.properties"
 function read_property() {
     if [ -f "\$BUILD_PROPERTIES" ]; then
         grep "\${1}" \$BUILD_PROPERTIES | cut -d'=' -f2
