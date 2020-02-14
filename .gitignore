@@ -23,6 +23,7 @@ shared/.jvm
 *~
 *.orig
 *.sc
+*.rdb
 
 # eclipse
 .scala_dependencies
