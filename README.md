@@ -21,4 +21,4 @@ This template will prompt for the following parameters. Press Enter if the defau
  - `hcd_module [sample-hcd]`: Subproject name which holds HCD.
  - `hcd_prefix [nfiraos.samplehcd]`: HCD prefix
  - `scala_version [2.13.1]`: Specifies the Scala version for this project.
- - `csw_version [2.0.0-RC1]`: Specifies the Common Software (csw) version for this project.
+ - `csw_version [2.0.0-RC2]`: Specifies the Common Software (csw) version for this project.
