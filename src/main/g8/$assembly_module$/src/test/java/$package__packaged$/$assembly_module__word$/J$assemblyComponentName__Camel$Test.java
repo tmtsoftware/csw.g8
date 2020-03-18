@@ -18,7 +18,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
-public class J$name;format="Camel"$AssemblyTest extends JUnitSuite {
+public class J$assemblyComponentName;format="Camel"$Test extends JUnitSuite {
 
     @ClassRule
     public static final FrameworkTestKitJunitResource testKit =
@@ -27,12 +27,12 @@ public class J$name;format="Camel"$AssemblyTest extends JUnitSuite {
     @BeforeClass
     public static void setup() {
         // uncomment if you want one Assembly run for all tests
-        testKit.spawnStandalone(com.typesafe.config.ConfigFactory.load("J$name;format="Camel"$AssemblyStandalone.conf"));
+        testKit.spawnStandalone(com.typesafe.config.ConfigFactory.load("J$assemblyComponentName;format="Camel"$Standalone.conf"));
     }
 
     @Test
     public void testAssemblyShouldBeLocatableUsingLocationService() throws ExecutionException, InterruptedException {
-        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.J$name;format="Camel"$Assembly"), JComponentType.Assembly));
+        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.$assemblyComponentName;format="Camel"$"), JComponentType.Assembly));
         ILocationService locationService = testKit.jLocationService();
         AkkaLocation location = locationService.resolve(connection, Duration.ofSeconds(10)).get().get();
 
