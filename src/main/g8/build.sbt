@@ -10,12 +10,12 @@ lazy val `$name;format="space,norm"$` = project
 
 lazy val `$assembly_module$` = project
   .settings(
-    libraryDependencies ++= Dependencies.$name;format="Camel"$Assembly
+    libraryDependencies ++= Dependencies.$assemblyComponentName;format="Camel"$
   )
 
 lazy val `$hcd_module$` = project
   .settings(
-    libraryDependencies ++= Dependencies.$name;format="Camel"$Hcd
+    libraryDependencies ++= Dependencies.$hcdComponentName;format="Camel"$
   )
 
 lazy val `$deploy_module$` = project

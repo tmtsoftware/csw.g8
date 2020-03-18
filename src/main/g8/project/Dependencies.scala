@@ -2,7 +2,7 @@ import sbt._
 
 object Dependencies {
 
-  val $name;format="Camel"$Assembly = Seq(
+  val $assemblyComponentName;format="Camel"$ = Seq(
     CSW.`csw-framework`,
     CSW.`csw-testkit` % Test,
     Libs.`scalatest` % Test,
@@ -10,7 +10,7 @@ object Dependencies {
     Libs.`junit-interface` % Test
   )
 
-  val $name;format="Camel"$Hcd = Seq(
+  val $hcdComponentName;format="Camel"$ = Seq(
     CSW.`csw-framework`,
     CSW.`csw-testkit` % Test,
     Libs.`scalatest` % Test,

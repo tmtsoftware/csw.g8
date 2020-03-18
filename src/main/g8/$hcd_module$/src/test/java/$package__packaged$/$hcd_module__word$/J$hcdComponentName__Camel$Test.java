@@ -18,7 +18,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
-public class J$name;format="Camel"$HcdTest extends JUnitSuite {
+public class J$hcdComponentName;format="Camel"$Test extends JUnitSuite {
 
     @ClassRule
     public static final FrameworkTestKitJunitResource testKit =
@@ -27,12 +27,12 @@ public class J$name;format="Camel"$HcdTest extends JUnitSuite {
     @BeforeClass
     public static void setup() {
         // uncomment if you want one HCD run for all tests
-        testKit.spawnStandalone(com.typesafe.config.ConfigFactory.load("J$name;format="Camel"$HcdStandalone.conf"));
+        testKit.spawnStandalone(com.typesafe.config.ConfigFactory.load("J$hcdComponentName;format="Camel"$Standalone.conf"));
     }
 
     @Test
     public void testHcdShouldBeLocatableUsingLocationService() throws ExecutionException, InterruptedException {
-        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.J$name;format="Camel"$Hcd"), JComponentType.HCD));
+        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.$hcdComponentName;format="Camel"$"), JComponentType.HCD));
         ILocationService locationService = testKit.jLocationService();
         AkkaLocation location = locationService.resolve(connection, Duration.ofSeconds(10)).get().get();
 

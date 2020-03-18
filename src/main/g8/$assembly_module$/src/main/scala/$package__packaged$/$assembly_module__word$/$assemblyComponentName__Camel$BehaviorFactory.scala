@@ -6,9 +6,9 @@ import csw.framework.scaladsl.{ComponentBehaviorFactory, ComponentHandlers}
 import csw.command.client.messages.TopLevelActorMessage
 
 
-class $name;format="Camel"$AssemblyBehaviorFactory extends ComponentBehaviorFactory {
+class $assemblyComponentName;format="Camel"$BehaviorFactory extends ComponentBehaviorFactory {
 
   override def handlers(ctx: ActorContext[TopLevelActorMessage], cswCtx: CswContext): ComponentHandlers =
-    new $name;format="Camel"$AssemblyHandlers(ctx, cswCtx)
+    new $assemblyComponentName;format="Camel"$Handlers(ctx, cswCtx)
 
 }
