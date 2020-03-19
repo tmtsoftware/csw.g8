@@ -10,12 +10,12 @@ lazy val `$name;format="space,norm"$` = project
 
 lazy val `$assembly_module$` = project
   .settings(
-    libraryDependencies ++= Dependencies.$assemblyComponentName;format="Camel"$
+    libraryDependencies ++= Dependencies.$assemblyComponentName;format="space,Camel"$
   )
 
 lazy val `$hcd_module$` = project
   .settings(
-    libraryDependencies ++= Dependencies.$hcdComponentName;format="Camel"$
+    libraryDependencies ++= Dependencies.$hcdComponentName;format="space,Camel"$
   )
 
 lazy val `$deploy_module$` = project
@@ -25,7 +25,7 @@ lazy val `$deploy_module$` = project
   )
   .enablePlugins(JavaAppPackaging, CswBuildInfo)
   .settings(
-    libraryDependencies ++= Dependencies.$name;format="Camel"$Deploy,
+    libraryDependencies ++= Dependencies.$name;format="space,Camel"$Deploy,
     // This is the placeholder for setting JVM options via sbt native packager.
     // You can add more JVM options below.
 //    javaOptions in Universal ++= Seq(

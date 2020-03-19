@@ -18,7 +18,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
-public class J$assemblyComponentName;format="Camel"$Test extends JUnitSuite {
+public class J$assemblyComponentName;format="space,Camel"$Test extends JUnitSuite {
 
     @ClassRule
     public static final FrameworkTestKitJunitResource testKit =
@@ -27,7 +27,7 @@ public class J$assemblyComponentName;format="Camel"$Test extends JUnitSuite {
     @BeforeClass
     public static void setup() {
         // uncomment if you want one Assembly run for all tests
-        testKit.spawnStandalone(com.typesafe.config.ConfigFactory.load("J$assemblyComponentName;format="Camel"$Standalone.conf"));
+        testKit.spawnStandalone(com.typesafe.config.ConfigFactory.load("J$assemblyComponentName;format="space,Camel"$Standalone.conf"));
     }
 
     @Test

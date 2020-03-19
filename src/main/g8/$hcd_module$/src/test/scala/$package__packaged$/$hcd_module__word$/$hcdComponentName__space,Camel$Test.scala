@@ -10,14 +10,14 @@ import org.scalatest.funsuite.AnyFunSuiteLike
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-class $hcdComponentName;format="Camel"$Test extends ScalaTestFrameworkTestKit(AlarmServer, EventServer) with AnyFunSuiteLike {
+class $hcdComponentName;format="space,Camel"$Test extends ScalaTestFrameworkTestKit(AlarmServer, EventServer) with AnyFunSuiteLike {
 
   import frameworkTestKit.frameworkWiring._
 
   override def beforeAll(): Unit = {
     super.beforeAll()
     // uncomment if you want one HCD run for all tests
-    spawnStandalone(com.typesafe.config.ConfigFactory.load("$hcdComponentName;format="Camel"$Standalone.conf"))
+    spawnStandalone(com.typesafe.config.ConfigFactory.load("$hcdComponentName;format="space,Camel"$Standalone.conf"))
   }
 
   test("HCD should be locatable using Location Service") {
