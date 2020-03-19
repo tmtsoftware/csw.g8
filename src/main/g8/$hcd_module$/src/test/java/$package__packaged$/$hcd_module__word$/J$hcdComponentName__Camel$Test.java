@@ -32,7 +32,7 @@ public class J$hcdComponentName;format="Camel"$Test extends JUnitSuite {
 
     @Test
     public void testHcdShouldBeLocatableUsingLocationService() throws ExecutionException, InterruptedException {
-        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.$hcdComponentName;format="Camel"$"), JComponentType.HCD));
+        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.$hcdComponentName;format="package"$"), JComponentType.HCD));
         ILocationService locationService = testKit.jLocationService();
         AkkaLocation location = locationService.resolve(connection, Duration.ofSeconds(10)).get().get();
 
