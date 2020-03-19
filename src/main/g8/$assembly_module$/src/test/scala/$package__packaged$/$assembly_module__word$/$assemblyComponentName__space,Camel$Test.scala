@@ -10,14 +10,14 @@ import org.scalatest.funsuite.AnyFunSuiteLike
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-class $assemblyComponentName;format="Camel"$Test extends ScalaTestFrameworkTestKit(AlarmServer, EventServer) with AnyFunSuiteLike {
+class $assemblyComponentName;format="space,Camel"$Test extends ScalaTestFrameworkTestKit(AlarmServer, EventServer) with AnyFunSuiteLike {
 
   import frameworkTestKit.frameworkWiring._
 
   override def beforeAll(): Unit = {
     super.beforeAll()
     // uncomment if you want one Assembly run for all tests
-    spawnStandalone(com.typesafe.config.ConfigFactory.load("$assemblyComponentName;format="Camel"$Standalone.conf"))
+    spawnStandalone(com.typesafe.config.ConfigFactory.load("$assemblyComponentName;format="space,Camel"$Standalone.conf"))
   }
 
   test("Assembly should be locatable using Location Service") {

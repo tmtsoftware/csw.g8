@@ -1,4 +1,4 @@
-package $package$.$assembly_module;format="word"$;
+package $package$.$hcd_module;format="word"$;
 
 import akka.actor.typed.javadsl.ActorContext;
 import csw.command.client.messages.TopLevelActorMessage;
@@ -11,22 +11,23 @@ import csw.params.commands.ControlCommand;
 import csw.time.core.models.UTCTime;
 import csw.params.core.models.Id;
 
+
 import java.util.concurrent.CompletableFuture;
 
 /**
  * Domain specific logic should be written in below handlers.
  * This handlers gets invoked when component receives messages/commands from other component/entity.
- * For example, if one component sends Submit(Setup(args)) command to $hcdComponentName;format="Camel"$,
+ * For example, if one component sends Submit(Setup(args)) command to $hcdComponentName;format="space,Camel"$,
  * This will be first validated in the supervisor and then forwarded to Component TLA which first invokes validateCommand hook
  * and if validation is successful, then onSubmit hook gets invoked.
  * You can find more information on this here : https://tmtsoftware.github.io/csw/commons/framework.html
  */
-public class J$assemblyComponentName;format="Camel"$Handlers extends JComponentHandlers {
+public class J$hcdComponentName;format="space,Camel"$Handlers extends JComponentHandlers {
 
     private final JCswContext cswCtx;
     private final ILogger log;
 
-    J$assemblyComponentName;format="Camel"$Handlers(ActorContext<TopLevelActorMessage> ctx,JCswContext cswCtx) {
+    J$hcdComponentName;format="space,Camel"$Handlers(ActorContext<TopLevelActorMessage> ctx,JCswContext cswCtx) {
         super(ctx, cswCtx);
         this.cswCtx = cswCtx;
         this.log = cswCtx.loggerFactory().getLogger(getClass());
@@ -34,7 +35,7 @@ public class J$assemblyComponentName;format="Camel"$Handlers extends JComponentH
 
     @Override
     public CompletableFuture<Void> jInitialize() {
-    log.info("Initializing $assemblyComponentName$...");
+    log.info("Initializing $hcdComponentName$...");
     return CompletableFuture.runAsync(() -> {
 
         });
@@ -78,12 +79,12 @@ public class J$assemblyComponentName;format="Camel"$Handlers extends JComponentH
     }
 
     @Override
-    public void onDiagnosticMode(UTCTime startTime,String hint){
+    public void onDiagnosticMode(UTCTime startTime, String hint){
 
     }
 
     @Override
-    public void onOperationsMode(){
+    public void onOperationsMode() {
 
     }
 }
