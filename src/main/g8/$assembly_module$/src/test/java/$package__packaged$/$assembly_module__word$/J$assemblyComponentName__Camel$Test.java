@@ -32,7 +32,7 @@ public class J$assemblyComponentName;format="Camel"$Test extends JUnitSuite {
 
     @Test
     public void testAssemblyShouldBeLocatableUsingLocationService() throws ExecutionException, InterruptedException {
-        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.$assemblyComponentName;format="Camel"$"), JComponentType.Assembly));
+        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.$assemblyComponentName;format="package"$"), JComponentType.Assembly));
         ILocationService locationService = testKit.jLocationService();
         AkkaLocation location = locationService.resolve(connection, Duration.ofSeconds(10)).get().get();
 

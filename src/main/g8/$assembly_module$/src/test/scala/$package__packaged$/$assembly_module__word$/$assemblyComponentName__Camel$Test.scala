@@ -21,7 +21,7 @@ class $assemblyComponentName;format="Camel"$Test extends ScalaTestFrameworkTestK
   }
 
   test("Assembly should be locatable using Location Service") {
-    val connection = AkkaConnection(ComponentId(Prefix("$subsystem$.$assemblyComponentName;format="Camel"$"), ComponentType.Assembly))
+    val connection = AkkaConnection(ComponentId(Prefix("$subsystem$.$assemblyComponentName;format="package"$"), ComponentType.Assembly))
     val akkaLocation = Await.result(locationService.resolve(connection, 10.seconds), 10.seconds).get
 
     akkaLocation.connection shouldBe connection
