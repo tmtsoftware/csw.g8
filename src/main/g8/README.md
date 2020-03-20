@@ -44,7 +44,7 @@ Note: An alternative method is to run `sbt stage`, which installs the applicatio
 
 Run the container cmd script with arguments. For example:
 
-* Run the HCD in a standalone mode with a local config file (The standalone config format is differennt than the container format):
+* Run the HCD in a standalone mode with a local config file (The standalone config format is different than the container format):
 
 ```
 ./target/universal/stage/bin/$name;format="word"$-container-cmd-app --standalone --local ./src/main/resources/SampleHcdStandalone.conf

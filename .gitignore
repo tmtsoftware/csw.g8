@@ -32,3 +32,8 @@ shared/.jvm
 bin/
 journal
 snapshots
+
+#metals
+.metals
+.bloop
+
