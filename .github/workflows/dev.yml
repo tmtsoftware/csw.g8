@@ -1,0 +1,64 @@
+name: giter8
+
+on:
+  push:
+    branches: [master]
+
+  schedule:
+    - cron: "30 18 * * *" # run at 00:00 AM IST
+
+jobs:
+  g8:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: olafurpg/setup-scala@v5
+        with:
+          java-version: adopt@1.11
+
+      - name: Cache ~/.cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache
+          key: ${{ runner.os }}-coursier-${{ hashFiles('src/main/g8/project/Libs.scala') }}
+          restore-keys: |
+            ${{ runner.os }}-coursier-
+
+      - name: Cache ~/.sbt
+        uses: actions/cache@v1
+        with:
+          path: ~/.sbt
+          key: ${{ runner.os }}-sbt-${{ hashFiles('project/build.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-sbt-
+
+      - name: Publish Local
+        run: sbt clean publishLocal
+
+      - name: Giter8 Compile
+        run: |
+          sbt new tmtsoftware/csw.g8 --branch dev --name=galil --csw_version='0.1.0-SNAPSHOT' 
+          cd galil 
+          sbt clean test
+
+      - name: Build Status
+        if: always()
+        id: build_status
+        run: |
+          if [[ ${{job.status}} == Success ]]
+          then
+          echo ::set-output name=status_icon::'white_check_mark'
+          echo ::set-output name=build_status::'SUCCESS'
+          else
+          echo ::set-output name=status_icon::'x'
+          echo ::set-output name=build_status::'FAILURE'
+          fi
+
+      - name: Notify slack
+        if: always()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: pullreminders/slack-action@master
+        with:
+          args: '{\"channel\":\"#giter8-nightly-build\",\"text\":\":${{ steps.build_status.outputs.status_icon }}: ${{ steps.build_status.outputs.build_status }}: Job ${{ github.event.repository.name }}:${{github.workflow}} \n https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}\"}'
