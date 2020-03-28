@@ -12,7 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout csw repo
+        uses: actions/checkout@v2
+        with:
+          repository: tmtsoftware/csw
+
       - uses: olafurpg/setup-scala@v5
         with:
           java-version: adopt@1.11
@@ -21,7 +25,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.cache
-          key: ${{ runner.os }}-coursier-${{ hashFiles('src/main/g8/project/Libs.scala') }}
+          key: ${{ runner.os }}-coursier-${{ hashFiles('project/Libs.scala') }}
           restore-keys: |
             ${{ runner.os }}-coursier-
 
