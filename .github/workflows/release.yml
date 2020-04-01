@@ -1,15 +1,12 @@
 name: release
 
-# on:
-#   pull_request:
-#     types:
-#       - opened
-#       - labeled
-
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types:
+      - labeled
+      - opened
+      - edited
+    branches: master
 
 jobs:
   release:
@@ -26,12 +23,23 @@ jobs:
         id: csw
         run: |
           CSW_VERSION=$(grep "csw.version" ./src/main/g8/default.properties 2>/dev/null | cut -d'=' -f2)
-          echo "Using CSW_VERSION = $CSW_VERSION"
-          echo ::set-output name=version::'$CSW_VERSION'
+          echo ::set-output name=version::$CSW_VERSION
+
+      - name: Merge
+        uses: "pascalgn/automerge-action@135f0bdb927d9807b5446f7ca9ecc2c51de03c4a"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: "release"
+          MERGE_FORKS: "false"
 
       - name: Giter8 Compile
         run: |
-          echo "Using CSW_VERSION = ${{ steps.csw.outputs.version }}"
           sbt new tmtsoftware/csw.g8 --name=galil --csw_version=${{ steps.csw.outputs.version }}
           cd galil 
           sbt clean test
+
+      - name: Tag Repo
+        run: |
+          VERSION=${{ steps.csw.outputs.version }}
+          git tag v$VERSION
+          git push origin v$VERSION
