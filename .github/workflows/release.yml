@@ -31,7 +31,7 @@ jobs:
 
       - name: Giter8 Compile
         run: |
-          echo "Using CSW_VERSION = ${{ steps.csw.version }}"
-          sbt new tmtsoftware/csw.g8 --name=galil --csw_version=${{ steps.csw.version }}
+          echo "Using CSW_VERSION = ${{ steps.csw.outputs.version }}"
+          sbt new tmtsoftware/csw.g8 --name=galil --csw_version=${{ steps.csw.outputs.version }}
           cd galil 
           sbt clean test
