@@ -1,0 +1,37 @@
+name: release
+
+# on:
+#   pull_request:
+#     types:
+#       - opened
+#       - labeled
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: olafurpg/setup-scala@v5
+        with:
+          java-version: adopt@1.11
+
+      - name: Release Version
+        id: csw
+        run: |
+          CSW_VERSION=$(grep "csw.version" ./src/main/g8/default.properties 2>/dev/null | cut -d'=' -f2)
+          echo "Using CSW_VERSION = $CSW_VERSION"
+          echo ::set-output name=version::'$CSW_VERSION'
+
+      - name: Giter8 Compile
+        run: |
+          echo "Using CSW_VERSION = ${{ steps.csw.version }}"
+          sbt new tmtsoftware/csw.g8 --name=galil --csw_version=${{ steps.csw.version }}
+          cd galil 
+          sbt clean test
