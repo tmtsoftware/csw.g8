@@ -2,7 +2,7 @@ name: giter8
 
 on:
   push:
-    branches: [master]
+    branches: [master, dev]
 
   schedule:
     - cron: "30 18 * * *" # run at 00:00 AM IST
@@ -53,4 +53,4 @@ jobs:
         with:
           job-status: ${{ job.status }}
           slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
-          channel: giter8-nightly-build
+          channel: ci-nightly
