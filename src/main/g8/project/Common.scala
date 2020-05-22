@@ -15,8 +15,6 @@ object Common extends AutoPlugin {
     scalaVersion := Libs.ScalaVersion,
     organizationHomepage := Some(url("http://www.tmt.org")),
 
-    dependencyOverrides += AkkaHttp.`akka-http-spray-json`,
-
     scalacOptions ++= Seq(
       "-encoding",
       "UTF-8",
@@ -36,7 +34,6 @@ object Common extends AutoPlugin {
     ),
     resolvers += "jitpack" at "https://jitpack.io",
     resolvers += "bintray" at "https://jcenter.bintray.com",
-    resolvers += Resolver.bintrayRepo("lonelyplanet", "maven"),
     version := "$version$",
     fork := true,
     parallelExecution in Test := false,

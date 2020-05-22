@@ -8,16 +8,11 @@ import scala.util.control.NonFatal
 object Libs {
   val ScalaVersion = "$scala_version$"
 
-  val `scalatest`       = "org.scalatest"          %% "scalatest"       % "3.1.1"  //Apache License 2.0
+  val `scalatest`       = "org.scalatest"          %% "scalatest"       % "3.1.2"  //Apache License 2.0
   val `scala-async`     = "org.scala-lang.modules" %% "scala-async"     % "0.10.0"  //BSD 3-clause "New" or "Revised" License
   val `junit`           = "junit"                  %  "junit"           % "4.12"   //Eclipse Public License 1.0
   val `junit-interface` = "com.novocode"           %  "junit-interface" % "0.11"   //BSD 2-clause "Simplified" License
   val `mockito-scala`   = "org.mockito"            %% "mockito-scala"   % "1.13.8"
-}
-
-object AkkaHttp {
-  val Version                = "10.2.0-M1"
-  val `akka-http-spray-json` = "com.typesafe.akka" %% "akka-http-spray-json" % Version
 }
 
 object CSW {
