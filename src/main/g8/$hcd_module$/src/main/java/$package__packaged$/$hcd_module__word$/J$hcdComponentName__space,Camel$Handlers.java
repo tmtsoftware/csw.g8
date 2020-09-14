@@ -34,18 +34,12 @@ public class J$hcdComponentName;format="space,Camel"$Handlers extends JComponent
     }
 
     @Override
-    public CompletableFuture<Void> jInitialize() {
+    public void jInitialize() {
     log.info("Initializing $hcdComponentName$...");
-    return CompletableFuture.runAsync(() -> {
-
-        });
     }
 
     @Override
-    public CompletableFuture<Void> jOnShutdown() {
-        return CompletableFuture.runAsync(() -> {
-
-        });
+    public void jOnShutdown() {
     }
 
     @Override
