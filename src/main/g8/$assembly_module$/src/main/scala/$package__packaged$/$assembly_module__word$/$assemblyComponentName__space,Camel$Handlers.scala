@@ -27,8 +27,9 @@ class $assemblyComponentName;format="space,Camel"$Handlers(ctx: ActorContext[Top
   implicit val ec: ExecutionContextExecutor = ctx.executionContext
   private val log                           = loggerFactory.getLogger
 
-  override def initialize(): Unit = {
+  override def initialize(): Future[Unit] = {
     log.info("Initializing $assemblyComponentName$...")
+    Future.unit
   }
 
   override def onLocationTrackingEvent(trackingEvent: TrackingEvent): Unit = {}
@@ -39,7 +40,7 @@ class $assemblyComponentName;format="space,Camel"$Handlers(ctx: ActorContext[Top
 
   override def onOneway(runId: Id, controlCommand: ControlCommand): Unit = {}
 
-  override def onShutdown(): Unit = {}
+  override def onShutdown(): Future[Unit] = { Future.unit }
 
   override def onGoOffline(): Unit = {}
 
