@@ -1,8 +1,8 @@
-name: dev
+name: ci for dev branch (deprecated)
 
 on:
   push:
-    branches: [master]
+    branches: [dev]
 
   schedule:
     - cron: "30 18 * * *" # run at 00:00 AM IST
@@ -55,8 +55,8 @@ jobs:
 
       - name: Giter8 Compile
         run: |
-          g8 tmtsoftware/csw.g8 --name=galil --csw_version='0.1.0-SNAPSHOT'
-          cd galil 
+          g8 tmtsoftware/csw.g8 --branch dev --name=galil --csw_version='0.1.0-SNAPSHOT'
+          cd galil
           sbt clean test
 
       - name: Notify slack
