@@ -15,8 +15,6 @@ object Common extends AutoPlugin {
     scalaVersion := Libs.ScalaVersion,
     organizationHomepage := Some(url("http://www.tmt.org")),
 
-    dependencyOverrides += AkkaHttp.`akka-http-spray-json`,
-
     scalacOptions ++= Seq(
       "-encoding",
       "UTF-8",

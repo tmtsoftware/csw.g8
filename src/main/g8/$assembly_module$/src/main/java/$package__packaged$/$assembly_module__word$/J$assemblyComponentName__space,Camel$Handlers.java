@@ -33,18 +33,12 @@ public class J$assemblyComponentName;format="space,Camel"$Handlers extends JComp
     }
 
     @Override
-    public CompletableFuture<Void> jInitialize() {
+    public void jInitialize() {
     log.info("Initializing $assemblyComponentName$...");
-    return CompletableFuture.runAsync(() -> {
-
-        });
     }
 
     @Override
-    public CompletableFuture<Void> jOnShutdown() {
-        return CompletableFuture.runAsync(() -> {
-
-        });
+    public void jOnShutdown() {
     }
 
     @Override
