@@ -43,9 +43,9 @@ jobs:
           cd /usr/local/bin
           chmod +x g8
 
-      - name: Giter8 Compile with csw_version in default.properties
+      - name: Giter8 Compile csw.g8 with csw_version in default.properties
         run: |
-          g8 tmtsoftware/csw.g8 --name=galil
+          g8 tmtsoftware/csw.g8 -t <****> --name=galil
           cd galil
           sbt clean test
 
