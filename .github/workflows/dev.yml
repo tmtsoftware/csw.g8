@@ -2,7 +2,7 @@ name: giter8
 
 on:
   push:
-    branches: [master, dev]
+    branches: [master]
 
   schedule:
     - cron: "30 18 * * *" # run at 00:00 AM IST
