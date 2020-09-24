@@ -12,6 +12,6 @@ Steps to release:
     then updated line in `release.yml` will look like `g8 tmtsoftware/csw.g8 -t v3.0.0 --name=galil`
         
 4. Run `./release.sh $VERSION$` script by providing version number argument
-    **Note:** `PROD=true` environment varibale needs to be set before running `release.sh`
+    **Note:** `PROD=true` environment variable needs to be set before running `release.sh`
 
 5. Tagging csw.g8 will trigger `release` workflow in github actions tab. Make sure that `release` workflow is green.

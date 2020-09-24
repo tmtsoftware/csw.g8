@@ -33,4 +33,4 @@ This template will prompt for the following parameters. Press Enter to accept th
 - `assembly_module [sample]`: Subproject name which holds the Assembly code.
 - `hcd_module [samplehcd]`: Subproject name which holds the HCD code.
 - `scala_version [2.13.1]`: Specifies the Scala version for this project.
-- `csw_version [2.0.1]`: Specifies the Common Software (CSW) version for this project.
+- `csw_version [3.0.0-M1]`: Specifies the Common Software (CSW) version for this project.
