@@ -7,8 +7,18 @@ The created project contains three subprojects:
 - An HCD
 - A Deploy module, containing code to run the components
 
-Use the following command to create a new project:
-`sbt new tmtsoftware/csw.g8`
+## Getting Started
+
+### Install Coursier
+Please follow the [coursier installation](https://get-coursier.io/docs/cli-installation)
+
+### Install Giter8
+
+`cs install giter8`
+
+### Create new project using giter8 template
+
+`g8 tmtsoftware/csw.g8`
 
 This template will prompt for the following parameters. Press Enter to accept the default values, shown in brackets:
 
@@ -23,4 +33,4 @@ This template will prompt for the following parameters. Press Enter to accept th
 - `assembly_module [sample]`: Subproject name which holds the Assembly code.
 - `hcd_module [samplehcd]`: Subproject name which holds the HCD code.
 - `scala_version [2.13.1]`: Specifies the Scala version for this project.
-- `csw_version [2.0.1]`: Specifies the Common Software (CSW) version for this project.
+- `csw_version [3.0.0-M1]`: Specifies the Common Software (CSW) version for this project.
