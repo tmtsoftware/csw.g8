@@ -57,7 +57,9 @@ jobs:
 
       - name: Giter8 Compile
         run: |
-          g8 tmtsoftware/csw.g8 --branch dev --name=galil --csw_version='0.1.0-SNAPSHOT'
+          echo("Running PR build for branch mentioned below")
+          echo ${GITHUB_HEAD_REF}
+          g8 tmtsoftware/csw.g8 --branch ${GITHUB_HEAD_REF} --name=galil --csw_version='0.1.0-SNAPSHOT'
           cd galil
           sbt clean test
 
