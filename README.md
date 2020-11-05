@@ -32,5 +32,4 @@ This template will prompt for the following parameters. Press Enter to accept th
 - `deploy_module [sample-deploy]`: Subproject name which holds HostConfig and ContainerCmd applications.
 - `assembly_module [sample]`: Subproject name which holds the Assembly code.
 - `hcd_module [samplehcd]`: Subproject name which holds the HCD code.
-- `scala_version [2.13.1]`: Specifies the Scala version for this project.
-- `csw_version [3.0.0-M1]`: Specifies the Common Software (CSW) version for this project.
+- `scala_version [2.13.3]`: Specifies the Scala version for this project.
