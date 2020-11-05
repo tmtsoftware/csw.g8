@@ -1,9 +1,12 @@
-name: release sanity
+name: release
 
 on:
   push:
     tags:
       - "v*"
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   g8:
@@ -45,7 +48,7 @@ jobs:
 
       - name: Giter8 Compile csw.g8 with csw_version in default.properties
         run: |
-          g8 tmtsoftware/csw.g8 -t <****> --name=galil
+          g8 tmtsoftware/csw.g8 --name=galil
           cd galil
           sbt clean test
 

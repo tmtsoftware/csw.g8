@@ -1,8 +1,10 @@
-name: ci for dev branch (deprecated)
+name: Dev ci for master
 
 on:
   push:
-    branches: [dev]
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
 
   schedule:
     - cron: "30 18 * * *" # run at 00:00 AM IST
