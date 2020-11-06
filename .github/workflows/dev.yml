@@ -1,4 +1,4 @@
-name: Dev ci for master
+name: dev CI
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout csw repo
+      - name: Checkout CSW repo
         uses: actions/checkout@v2
         with:
           repository: tmtsoftware/csw
@@ -69,4 +69,4 @@ jobs:
         with:
           job-status: ${{ job.status }}
           slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
-          channel: ci-nightly
+          channel: ci-dev

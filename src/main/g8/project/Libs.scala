@@ -19,7 +19,7 @@ object CSW {
 
   // If you want to change CSW version, then update "csw.version" property in "build.properties" file
   // Same "csw.version" property is used in "scripts/csw-services.sh" script,
-  // this makes sure that CSW library dependency and csw services version is in sync
+  // this makes sure that CSW library dependency and CSW services version is in sync
   val Version: String = {
     var reader: FileReader = null
     try {

@@ -32,8 +32,8 @@ function usage() {
     echo "  --version | -v <CSW_VERSION> Optional CSW version number used to start services"
     echo
     echo "Commands:"
-    echo "  start      Starts all csw services if no options provided"
-    echo "  stop       Stops all csw services, use this only when script is started in the background"
+    echo "  start      Starts all CSW services if no options provided"
+    echo "  stop       Stops all CSW services, use this only when script is started in the background"
     echo
     echo "Note: for more information, run $SCRIPT_NAME start --help"
 

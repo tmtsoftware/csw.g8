@@ -33,3 +33,11 @@ This template will prompt for the following parameters. Press Enter to accept th
 - `assembly_module [sample]`: Subproject name which holds the Assembly code.
 - `hcd_module [samplehcd]`: Subproject name which holds the HCD code.
 - `scala_version [2.13.3]`: Specifies the Scala version for this project.
+
+---
+**NOTE**
+Following section is intended only for testing purpose and can be skipped by the consumers of template.
+
+#### Testing the template
+
+For people interested in testing the template with the latest commit on the master branch, refer [TESTING.md](TESTING.md)
