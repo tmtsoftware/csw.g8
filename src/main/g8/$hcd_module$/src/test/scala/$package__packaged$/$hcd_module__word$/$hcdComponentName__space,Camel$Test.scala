@@ -1,4 +1,4 @@
-package $package$.$hcd_module;format="word"$
+package org.tmt.$subsystem;format="lower"$.$hcdComponentName;format="space,norm,word"$;
 
 import csw.location.api.models.Connection.AkkaConnection
 import csw.location.api.models.{ComponentId, ComponentType}

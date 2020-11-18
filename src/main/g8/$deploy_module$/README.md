@@ -11,8 +11,8 @@ built.sbt file:
 ```
 lazy val `$deploy_module$` = project
   .dependsOn(
-    `$assembly_module$`,
-    `$hcd_module$`
+    `$assemblyComponentName;format="space,norm"$`,
+    `$hcdComponentName;format="space,norm"$``
   )
   .enablePlugins(JavaAppPackaging)
   .settings(

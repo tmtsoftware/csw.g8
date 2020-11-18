@@ -1,27 +1,27 @@
 lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
-  `$assembly_module$`,
-  `$hcd_module$`,
-  `$deploy_module$`
+  `$assemblyComponentName;format="space,norm"$`,
+  `$hcdComponentName;format="space,norm"$`,
+  `$name;format="space,norm"$-deploy`
 )
 
 lazy val `$name;format="space,norm"$-project` = project
   .in(file("."))
   .aggregate(aggregatedProjects: _*)
 
-lazy val `$assembly_module$` = project
+lazy val `$assemblyComponentName;format="space,norm"$` = project
   .settings(
     libraryDependencies ++= Dependencies.$assemblyComponentName;format="space,Camel"$
   )
 
-lazy val `$hcd_module$` = project
+lazy val `$hcdComponentName;format="space,norm"$` = project
   .settings(
     libraryDependencies ++= Dependencies.$hcdComponentName;format="space,Camel"$
   )
 
-lazy val `$deploy_module$` = project
+lazy val `$name;format="space,norm"$-deploy` = project
   .dependsOn(
-    `$assembly_module;format="normalize"$`,
-    `$hcd_module;format="normalize"$`
+    `$assemblyComponentName;format="space,norm"$`,
+    `$hcdComponentName;format="space,norm"$`
   )
   .enablePlugins(JavaAppPackaging, CswBuildInfo)
   .settings(

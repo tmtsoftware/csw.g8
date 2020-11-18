@@ -5,8 +5,8 @@ TMT Common Software ([CSW](https://github.com/tmtsoftware/csw)) APIs.
 
 ## Subprojects
 
-* $assembly_module$ - an assembly that talks to the $name$ HCD
-* $hcd_module$ - an HCD that talks to the $name$ hardware
+* $assemblyComponentName;format="space,norm"$ - an assembly that talks to the $name$ HCD
+* $hcdComponentName;format="space,norm"$` - an HCD that talks to the $name$ hardware
 * $deploy_module$ - for starting/deploying HCDs and assemblies
 
 ## Upgrading CSW Version

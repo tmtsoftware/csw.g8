@@ -1,4 +1,4 @@
-package $package$.$deploy_module;format="word"$
+package org.tmt.$subsystem;format="lower"$.$name;format="space,norm,word"$deploy;
 
 import csw.framework.deploy.containercmd.ContainerCmd
 import csw.prefix.models.Subsystem

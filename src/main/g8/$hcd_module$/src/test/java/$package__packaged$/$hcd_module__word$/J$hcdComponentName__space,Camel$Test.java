@@ -1,4 +1,4 @@
-package $package$.$hcd_module;format="word"$;
+package org.tmt.$subsystem;format="lower"$.$hcdComponentName;format="space,norm,word"$;;
 
 import csw.location.api.javadsl.ILocationService;
 import csw.location.api.javadsl.JComponentType;

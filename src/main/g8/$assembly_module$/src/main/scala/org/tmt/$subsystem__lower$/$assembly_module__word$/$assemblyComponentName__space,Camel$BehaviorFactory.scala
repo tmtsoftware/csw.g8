@@ -1,5 +1,4 @@
-package $package$.$assembly_module;format="word"$
-
+package org.tmt.$subsystem;format="lower"$.$assemblyComponentName;format="space,norm,word"$;
 import akka.actor.typed.scaladsl.ActorContext
 import csw.framework.models.CswContext
 import csw.framework.scaladsl.{ComponentBehaviorFactory, ComponentHandlers}
