@@ -6,8 +6,8 @@ TMT Common Software ([CSW](https://github.com/tmtsoftware/csw)) APIs.
 ## Subprojects
 
 * $assemblyComponentName;format="space,norm"$ - an assembly that talks to the $name$ HCD
-* $hcdComponentName;format="space,norm"$` - an HCD that talks to the $name$ hardware
-* $deploy_module$ - for starting/deploying HCDs and assemblies
+* $hcdComponentName;format="space,norm"$ - an HCD that talks to the $name$ hardware
+* $name;format="space,norm"$-deploy - for starting/deploying HCDs and assemblies
 
 ## Upgrading CSW Version
 
@@ -35,10 +35,10 @@ Note:
 
 ## Building the HCD and Assembly Applications
 
-* Run `sbt $deploy_module$/universal:packageBin`, this will create self-contained zip in `$deploy_module$/target/universal` directory
+* Run `sbt $name;format="space,norm"$-deploy/universal:packageBin`, this will create self-contained zip in `$name;format="space,norm"$-deploy/target/universal` directory
 * Unzip the generated zip and cd into the bin directory
 
-Note: An alternative method is to run `sbt stage`, which installs the applications locally in `$deploy_module$/target/universal/stage/bin`.
+Note: An alternative method is to run `sbt stage`, which installs the applications locally in `$name;format="space,norm"$-deploy/target/universal/stage/bin`.
 
 ## Running the HCD and Assembly
 
