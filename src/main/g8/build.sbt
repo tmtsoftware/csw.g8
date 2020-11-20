@@ -32,27 +32,22 @@ lazy val `$name;format="space,norm"$-deploy` = project
     libraryDependencies ++= Dependencies.$name;format="space,Camel"$Deploy
   )
 
-
-val orgName = settingKey[String]("name of the organization")
-val deploymentProject = settingKey[String]("name of the deployment module")
-val subsystem = settingKey[String]("name of the subsystem")
-val containerApp = settingKey[String]("name of the container App")
-val hostApp = settingKey[String]("name of the host App")
-val containerCommand = settingKey[String]("command to create container command app")
-val hostCommand = settingKey[String]("command to create host config app")
+def createCommand(version : String, mainClass : String) : String = {
+  val orgName = "$organization$"
+  val projName = "$name;format="space,norm"$"
+  val appName = mainClass.split('.').last
+  val command = "cs bootstrap " + orgName + ":" + projName +"-deploy_2.13:" + version + " -r jitpack -M " + mainClass + " -o " + appName + " -f"
+  command
+}
 
 val stage = taskKey[Unit]("creates an application for assembly and hcd component")
 
-orgName := "$organization$"
-deploymentProject := "$name;format="space,norm"$"
-subsystem := "$subsystem;format="lower"$"
-containerApp := orgName.value + "." + subsystem.value + "." + deploymentProject.value + "deploy.$name;format="space,Camel"$ContainerCmdApp"
-hostApp := orgName.value + "." + subsystem.value + "." + deploymentProject.value + "deploy.$name;format="space,Camel"$HostConfigApp"
-containerCommand := "cs bootstrap " + orgName.value + ":" + deploymentProject.value +"-deploy_2.13:" + version.value + " -r jitpack -M " + containerApp.value + " -o " + deploymentProject.value + "-container-cmd-app -f"
-hostCommand := "cs bootstrap " + orgName.value + ":" + deploymentProject.value +"-deploy_2.13:" + version.value + " -r jitpack -M " + hostApp.value + " -o " + deploymentProject.value + "-host-config-app -f"
-
 stage := {
+  val mainClasses = (`$name;format="space,norm"$-deploy`/Compile/discoveredMainClasses).value
+  val bootstrapCommands = mainClasses.map(createCommand(version.value, _))
+
   publishLocal.value
-  Process(containerCommand.value).run()
-  Process(hostCommand.value).run()
+  bootstrapCommands.foreach(Process(_).run())
 }
+
+
