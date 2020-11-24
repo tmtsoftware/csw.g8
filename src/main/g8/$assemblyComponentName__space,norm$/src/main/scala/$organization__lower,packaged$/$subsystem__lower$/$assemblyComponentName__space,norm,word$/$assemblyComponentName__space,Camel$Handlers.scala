@@ -1,5 +1,5 @@
 
-package $organization$.$subsystem;format="lower"$.$assemblyComponentName;format="space,norm,word"$;
+package $organization$.$subsystem;format="lower"$.$assemblyComponentName;format="space,norm,word"$
 
 import akka.actor.typed.scaladsl.ActorContext
 import csw.command.client.messages.TopLevelActorMessage

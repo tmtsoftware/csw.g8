@@ -1,4 +1,4 @@
-package $organization$.$subsystem;format="lower"$.$hcdComponentName;format="space,norm,word"$;
+package $organization$.$subsystem;format="lower"$.$hcdComponentName;format="space,norm,word"$
 
 import akka.actor.typed.scaladsl.ActorContext
 import csw.framework.models.CswContext

@@ -1,4 +1,4 @@
-package $organization$.$subsystem;format="lower"$.$name;format="space,norm,word"$deploy;
+package $organization$.$subsystem;format="lower"$.$name;format="space,norm,word"$deploy
 
 import csw.framework.deploy.hostconfig.HostConfig
 import csw.prefix.models.Subsystem

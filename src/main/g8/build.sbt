@@ -32,22 +32,25 @@ lazy val `$name;format="space,norm"$-deploy` = project
     libraryDependencies ++= Dependencies.$name;format="space,Camel"$Deploy
   )
 
-def createCommand(version : String, mainClass : String) : String = {
-  val orgName = "$organization$"
-  val projName = "$name;format="space,norm"$"
-  val appName = mainClass.split('.').last
-  val command = "cs bootstrap " + orgName + ":" + projName +"-deploy_2.13:" + version + " -r jitpack -M " + mainClass + " -o " + appName + " -f"
-  command
-}
 
-val stage = taskKey[Unit]("creates an application for assembly and hcd component")
+
+val stage = taskKey[Unit]("Creates an application for assembly and hcd component")
 
 stage := {
+
+  def createCommand(mainClass : String) : String = {
+    val orgName = "$organization$"
+    val projName = "$name;format="space,norm"$"
+    val appName = mainClass.split('.').last
+    val scalaVersion = Libs.ScalaVersion.substring(0, Libs.ScalaVersion.lastIndexOf('.'))
+    "cs bootstrap " + orgName + ":" + projName +"-deploy_" + scalaVersion + ":" + version.value + " -r jitpack -M " + mainClass + " -o " + appName + " -f"
+  }
+
   val mainClasses = (`$name;format="space,norm"$-deploy`/Compile/discoveredMainClasses).value
-  val bootstrapCommands = mainClasses.map(createCommand(version.value, _))
+  val bootstrapCommands = mainClasses.map(createCommand)
 
   publishLocal.value
   bootstrapCommands.foreach(Process(_).run())
-}
 
+}
 

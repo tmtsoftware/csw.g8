@@ -1,4 +1,4 @@
-package $organization$.$subsystem;format="lower"$.$assemblyComponentName;format="space,norm,word"$;
+package $organization$.$subsystem;format="lower"$.$assemblyComponentName;format="space,norm,word"$
 
 import csw.location.api.models.Connection.AkkaConnection
 import csw.prefix.models.Prefix
