@@ -1,4 +1,4 @@
-package $organization$.$subsystem;format="lower"$.$assemblyComponentName;format="space,norm,word"$;;
+package $organization$.$subsystem;format="lower"$.$assemblyComponentName;format="space,norm,word"$;
 
 import csw.location.api.javadsl.ILocationService;
 import csw.location.api.javadsl.JComponentType;
