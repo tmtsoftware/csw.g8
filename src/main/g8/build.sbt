@@ -6,16 +6,9 @@ lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
   `$name;format="space,norm"$-deploy`
 )
 
-lazy val rootDependencies : Seq[ClasspathDep[sbt.ProjectReference]] = Seq(
-  `$assemblyComponentName;format="space,norm"$`,
-  `$hcdComponentName;format="space,norm"$`,
-  `$name;format="space,norm"$-deploy`
-)
-
 lazy val `$name;format="space,norm"$-root` = project
   .in(file("."))
   .aggregate(aggregatedProjects: _*)
-  .dependsOn(rootDependencies: _*)
 
 // assembly module
 lazy val `$assemblyComponentName;format="space,norm"$` = project
