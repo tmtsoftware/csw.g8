@@ -3,7 +3,7 @@ import scala.sys.process.Process
 lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
   `$subsystem;format="lower"$-$assemblyComponentName;format="space,norm"$`,
   `$subsystem;format="lower"$-$hcdComponentName;format="space,norm"$`,
-  `$subsystem;format="lower"$-$name;format="space,norm"$-deploy`
+  `$subsystem;format="lower"$-$name;format="space,norm"$deploy`
 )
 
 lazy val `$name;format="space,norm"$-root` = project
@@ -23,7 +23,7 @@ lazy val `$subsystem;format="lower"$-$hcdComponentName;format="space,norm"$` = p
   )
 
 // deploy module
-lazy val `$subsystem;format="lower"$-$name;format="space,norm"$-deploy` = project
+lazy val `$subsystem;format="lower"$-$name;format="space,norm"$deploy` = project
   .dependsOn(
     `$subsystem;format="lower"$-$assemblyComponentName;format="space,norm"$`,
     `$subsystem;format="lower"$-$hcdComponentName;format="space,norm"$`
