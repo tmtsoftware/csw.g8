@@ -1,37 +1,56 @@
+import scala.sys.process.Process
+
 lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
-  `$assembly_module$`,
-  `$hcd_module$`,
-  `$deploy_module$`
+  `$assemblyComponentName;format="space,norm"$`,
+  `$hcdComponentName;format="space,norm"$`,
+  `$name;format="space,norm"$-deploy`
 )
 
-lazy val `$name;format="space,norm"$-project` = project
+lazy val `$name;format="space,norm"$-root` = project
   .in(file("."))
   .aggregate(aggregatedProjects: _*)
 
-lazy val `$assembly_module$` = project
+// assembly module
+lazy val `$assemblyComponentName;format="space,norm"$` = project
   .settings(
     libraryDependencies ++= Dependencies.$assemblyComponentName;format="space,Camel"$
   )
 
-lazy val `$hcd_module$` = project
+// hcd module
+lazy val `$hcdComponentName;format="space,norm"$` = project
   .settings(
     libraryDependencies ++= Dependencies.$hcdComponentName;format="space,Camel"$
   )
 
-lazy val `$deploy_module$` = project
+// deploy module
+lazy val `$name;format="space,norm"$-deploy` = project
   .dependsOn(
-    `$assembly_module;format="normalize"$`,
-    `$hcd_module;format="normalize"$`
+    `$assemblyComponentName;format="space,norm"$`,
+    `$hcdComponentName;format="space,norm"$`
   )
-  .enablePlugins(JavaAppPackaging, CswBuildInfo)
+  .enablePlugins(CswBuildInfo)
   .settings(
-    libraryDependencies ++= Dependencies.$name;format="space,Camel"$Deploy,
-    // This is the placeholder for setting JVM options via sbt native packager.
-    // You can add more JVM options below.
-//    javaOptions in Universal ++= Seq(
-//      // -J params will be added as jvm parameters
-//      "-J-Xmx8GB",
-//      "J-XX:+UseG1GC", // G1GC is default in jdk9 and above
-//      "J-XX:MaxGCPauseMillis=30" // Sets a target for the maximum GC pause time. This is a soft goal, and the JVM will make its best effort to achieve it
-//    )
+    libraryDependencies ++= Dependencies.$name;format="space,Camel"$Deploy
   )
+
+
+//val stage = taskKey[Unit]("Creates an application for assembly and hcd component")
+//
+//stage := {
+//
+//  def createCommand(mainClass : String) : String = {
+//    val orgName = "$organization$"
+//    val projName = "$name;format="space,norm"$"
+//    val appName = mainClass.split('.').last
+//    val scalaVersion = Libs.ScalaVersion.substring(0, Libs.ScalaVersion.lastIndexOf('.'))
+//    "cs bootstrap " + orgName + ":" + projName +"-deploy_" + scalaVersion + ":" + version.value + " -r jitpack -M " + mainClass + " -o " + appName + " -f"
+//  }
+//
+//  val mainClasses = (`$name;format="space,norm"$-deploy`/Compile/discoveredMainClasses).value
+//  val bootstrapCommands = mainClasses.map(createCommand)
+//
+//  publishLocal.value
+//  bootstrapCommands.foreach(Process(_).run())
+
+//}
+

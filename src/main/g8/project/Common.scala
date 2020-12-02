@@ -34,7 +34,7 @@ object Common extends AutoPlugin {
     ),
     resolvers += "jitpack" at "https://jitpack.io",
     resolvers += "bintray" at "https://jcenter.bintray.com",
-    version := "$version$",
+    version := "0.0.1",
     fork := true,
     parallelExecution in Test := false,
     autoCompilerPlugins := true,
