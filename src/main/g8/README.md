@@ -5,9 +5,9 @@ TMT Common Software ([CSW](https://github.com/tmtsoftware/csw)) APIs.
 
 ## Subprojects
 
-* $assemblyComponentName;format="space,norm"$ - an assembly that talks to the $name$ HCD
-* $hcdComponentName;format="space,norm"$ - an HCD that talks to the $name$ hardware
-* $name;format="space,norm"$-deploy - for starting/deploying HCDs and assemblies
+* $subsystem;format="lower"$-$assemblyComponentName;format="space,norm"$ - an assembly that talks to the $name$ HCD
+* $subsystem;format="lower"$-$hcdComponentName;format="space,norm"$ - an HCD that talks to the $name$ hardware
+* $subsystem;format="lower"$-$name;format="space,norm"$-deploy - for starting/deploying HCDs and assemblies
 
 ## Upgrading CSW Version
 
@@ -40,11 +40,11 @@ Run the container cmd script with arguments. For example:
 * Run the HCD in a standalone mode with a local config file (The standalone config format is different than the container format):
 
 ```
-sbt "$name;format="space,norm"$-deploy/runMain "$name;format="space,Camel"$ContainerCmdApp --standalone --local ./src/main/resources/SampleHcdStandalone.conf"
+sbt "$subsystem;format="lower"$-$name;format="space,norm"$-deploy/runMain $subsystem;format="lower"$.$name;format="space,norm,word"$deploy.$name;format="space,Camel"$ContainerCmdApp --standalone --local ./src/main/resources/SampleHcdStandalone.conf"
 ```
 
 * Start the HCD and assembly in a container using the Java implementations:
 
 ```
-sbt "$name;format="space,norm"$-deploy/runMain $name;format="space,Camel"$ContainerCmdApp --local ./src/main/resources/JSampleContainer.conf"
+sbt "$subsystem;format="lower"$-$name;format="space,norm"$-deploy/runMain $subsystem;format="lower"$.$name;format="space,norm,word"$deploy.$name;format="space,Camel"$ContainerCmdApp --local ./src/main/resources/JSampleContainer.conf"
 ```
