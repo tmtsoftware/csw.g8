@@ -7,7 +7,7 @@ Steps to release:
 3. Rebase dev branch with master branch.
 4. Merge dev branch to master branch.    
 5. Make sure workflow is green in actions tab in github repo for master branch.        
-6. Run `./release.sh $VERSION$` script by providing version number argument.
+6. Run `./release.sh $VERSION$` script by providing version number argument against master branch.
     **Note:** `PROD=true` environment variable needs to be set before running `release.sh`.
 7. After release is complete, change the `csw` version back to `0.1.0-SNAPSHOT` in `src/main/g8/project/build.properties` 
 in dev branch.
