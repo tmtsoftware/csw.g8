@@ -25,7 +25,6 @@ This template will prompt for the following parameters. Press Enter to accept th
 - `name [sample]`: The name of the project.
 - `assemblyComponentName [sampleAssembly]` : The Component Name of the Assembly
 - `hcdComponentName [sampleHcd]` : The Component Name of the HCD
-- `organization [org.tmt]`: Specifies the organization for this project.
 - `subsystem [CSW]`: Specifies the subsystem name.
 
 ---
