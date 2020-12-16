@@ -1,4 +1,3 @@
-import scala.sys.process.Process
 
 lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
   `$subsystem;format="lower"$-$assemblyComponentName;format="space,norm"$`,
@@ -32,5 +31,3 @@ lazy val `$subsystem;format="lower"$-$name;format="space,norm"$deploy` = project
   .settings(
     libraryDependencies ++= Dependencies.$name;format="space,Camel"$Deploy
   )
-
-
