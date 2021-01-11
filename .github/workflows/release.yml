@@ -48,7 +48,8 @@ jobs:
 
       - name: Giter8 Compile csw.g8 with csw_version in default.properties
         run: |
-          g8 tmtsoftware/csw.g8 --name=galil
+          echo "Running build for branch ${GITHUB_REF#refs/heads/}"
+          g8 tmtsoftware/csw.g8 --name=galil --branch ${GITHUB_REF#refs/heads/}
           cd galil
           sbt clean test
 
