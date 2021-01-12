@@ -10,7 +10,7 @@ object Common extends AutoPlugin {
   override def requires: Plugins = JvmPlugin
 
   override lazy val projectSettings: Seq[Setting[_]] = Seq(
-    organization := "$organization$",
+    organization := "com.github.tmtsoftware.$name;format="space,norm"$",
     organizationName := "TMT",
     scalaVersion := Libs.ScalaVersion,
     organizationHomepage := Some(url("http://www.tmt.org")),
@@ -34,7 +34,7 @@ object Common extends AutoPlugin {
     ),
     resolvers += "jitpack" at "https://jitpack.io",
     resolvers += "bintray" at "https://jcenter.bintray.com",
-    version := "$version$",
+    version := "0.0.1",
     fork := true,
     parallelExecution in Test := false,
     autoCompilerPlugins := true,

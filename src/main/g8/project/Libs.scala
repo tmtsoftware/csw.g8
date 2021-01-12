@@ -6,7 +6,7 @@ import sbt._
 import scala.util.control.NonFatal
 
 object Libs {
-  val ScalaVersion = "$scala_version$"
+  val ScalaVersion = "2.13.3"
 
   val `scalatest`       = "org.scalatest"          %% "scalatest"       % "3.2.2"  //Apache License 2.0
   val `scala-async`     = "org.scala-lang.modules" %% "scala-async"     % "1.0.0-M1"  //BSD 3-clause "New" or "Revised" License
