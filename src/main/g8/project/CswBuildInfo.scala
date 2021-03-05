@@ -3,8 +3,8 @@ import sbt.{AutoPlugin, Plugins, Setting}
 
 /**
 * ==================== IMPORTANT - DO NOT CHANGE =================
-* This is required to display correct version for `$name;format="space,Camel"$ContainerCmdApp`
-* Basically this overrides version of ContainerCmd which is coming from csw-framework` with version of $name$
+* This is required to display correct version for `$name;format="space,Camel"$ContainerCmdApp` and `$name;format="space,Camel"$HostConfigApp`
+* Basically this overrides version of ContainerCmd/HostConfig which is coming from csw-framework` with version of $name$
 *
 * */
 object CswBuildInfo extends AutoPlugin {
