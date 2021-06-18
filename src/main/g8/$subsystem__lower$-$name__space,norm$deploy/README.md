@@ -14,7 +14,6 @@ lazy val `$subsystem;format="lower"$-$name;format="space,norm"$-deploy` = projec
     `$subsystem;format="lower"$-$assemblyComponentName;format="space,norm"$`,
     `$subsystem;format="lower"$-$hcdComponentName;format="space,norm"$``
   )
-  .enablePlugins(JavaAppPackaging)
   .settings(
     libraryDependencies ++= Dependencies.$name;format="space,Camel"$Deploy
   )
