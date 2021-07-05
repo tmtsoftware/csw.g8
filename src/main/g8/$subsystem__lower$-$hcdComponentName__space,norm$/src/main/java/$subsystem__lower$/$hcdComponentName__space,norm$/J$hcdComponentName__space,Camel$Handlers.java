@@ -34,12 +34,12 @@ public class J$hcdComponentName;format="space,Camel"$Handlers extends JComponent
     }
 
     @Override
-    public void jInitialize() {
+    public void initialize() {
     log.info("Initializing $hcdComponentName$...");
     }
 
     @Override
-    public void jOnShutdown() {
+    public void onShutdown() {
     }
 
     @Override

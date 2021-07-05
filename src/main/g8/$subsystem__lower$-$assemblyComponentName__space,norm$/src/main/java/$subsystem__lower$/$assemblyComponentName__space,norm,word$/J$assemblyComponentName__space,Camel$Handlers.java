@@ -33,12 +33,12 @@ public class J$assemblyComponentName;format="space,Camel"$Handlers extends JComp
     }
 
     @Override
-    public void jInitialize() {
+    public void initialize() {
     log.info("Initializing $assemblyComponentName$...");
     }
 
     @Override
-    public void jOnShutdown() {
+    public void onShutdown() {
     }
 
     @Override
