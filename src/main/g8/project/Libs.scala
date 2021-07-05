@@ -8,7 +8,7 @@ import scala.util.control.NonFatal
 object Libs {
   val ScalaVersion = "2.13.5"
 
-  val `scalatest`       = "org.scalatest"          %% "scalatest"       % "3.2.5"  //Apache License 2.0
+  val `scalatest`       = "org.scalatest"          %% "scalatest"       % "3.2.9"  //Apache License 2.0
   val `scala-async`     = "org.scala-lang.modules" %% "scala-async"     % "1.0.0-M1"  //BSD 3-clause "New" or "Revised" License
   val `junit`           = "junit"                  %  "junit"           % "4.13.2"  //Eclipse Public License 1.0
   val `junit-interface` = "com.github.sbt"         %  "junit-interface" % "0.13.2"   //BSD 2-clause "Simplified" License

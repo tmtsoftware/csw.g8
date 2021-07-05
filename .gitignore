@@ -36,4 +36,5 @@ snapshots
 #metals
 .metals
 .bloop
+.bsp
 
