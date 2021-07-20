@@ -10,7 +10,7 @@ The created project contains three subprojects:
 ## Getting Started
 
 ### Install Coursier
-Please follow the [coursier installation](https://get-coursier.io/docs/cli-installation)
+Install `coursier` using steps described [here](https://tmtsoftware.github.io/csw/apps/csinstallation.html) and add TMT channel.
 
 ### Install Giter8
 

@@ -24,14 +24,15 @@ See [here](https://www.scala-sbt.org/1.0/docs/Setup.html) for instructions on in
 ## Prerequisites for running Components
 
 The CSW services need to be running before starting the components.
-This is done by starting the `csw-services.sh` script which is present inside `scripts` directory.
-Follow below instructions to run CSW services:
+   This is done by starting the `csw-services`.
+   If you are not building csw from the sources, you can run `csw-services` as follows:
 
-* Run `./scripts/csw-services.sh start` command to start all the CSW services i.e. Location, Config, Event, Alarm and Database Service
-* Run `./csw_services.sh start --help` to get more information.
+- Install `coursier` using steps described [here](https://tmtsoftware.github.io/csw/apps/csinstallation.html) and add TMT channel.
+- Run `cs install csw-services:<CSW version | SHA>`. This will create an executable file named `csw-services` in the default installation directory.
+- Run `csw-services start` command to start all the CSW services i.e. Location, Config, Event, Alarm and Database Service
+- Run `csw-services --help` to get more information.
 
-Note:
-`csw-services.sh` script reads `csw.version` property from `project/build.properties` file and uses that version for starting CSW services.
+Note: while running the csw-services use the csw version from `project/build.properties`
 
 ## Running the HCD and Assembly
 
