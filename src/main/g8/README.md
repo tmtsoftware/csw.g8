@@ -28,7 +28,7 @@ The CSW services need to be running before starting the components.
    If you are not building csw from the sources, you can run `csw-services` as follows:
 
 - Install `coursier` using steps described [here](https://tmtsoftware.github.io/csw/apps/csinstallation.html) and add TMT channel.
-- Run `cs install csw-services:<CSW version | SHA>`. This will create an executable file named `csw-services` in the default installation directory.
+- Run `cs install csw-services`. This will create an executable file named `csw-services` in the default installation directory.
 - Run `csw-services start` command to start all the CSW services i.e. Location, Config, Event, Alarm and Database Service
 - Run `csw-services --help` to get more information.
 
