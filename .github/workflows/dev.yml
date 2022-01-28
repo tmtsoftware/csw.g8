@@ -19,9 +19,11 @@ jobs:
         with:
           repository: tmtsoftware/csw
 
-      - uses: olafurpg/setup-scala@v10
+      - uses: laughedelic/coursier-setup@v1
         with:
-          java-version: adopt@1.11
+          jvm: 11
+          apps: sbt sbtn giter8
+      - uses: coursier/cache-action@v5
 
       - name: Cache ~/.cache
         uses: actions/cache@v1
@@ -41,19 +43,6 @@ jobs:
 
       - name: Publish Local
         run: sbt clean publishLocal
-
-      - name: Install CS native
-        run: |
-          curl -fLo cs https://git.io/coursier-cli-linux
-          chmod +x cs
-          sudo mv cs /usr/local/bin
-
-      - name: Install giter8
-        run: |
-          cs install giter8
-          sudo mv /home/runner/.local/share/coursier/bin/g8 /usr/local/bin
-          cd /usr/local/bin
-          chmod +x g8
           
       - name: Extract branch name (Trigger - PR)
         if: github.event_name == 'pull_request'
