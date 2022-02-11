@@ -11,6 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+		cleanWs()
                 sh "git checkout $VERSION"
                 sh "git pull origin $VERSION"
             }
