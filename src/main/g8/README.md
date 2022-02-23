@@ -41,7 +41,7 @@ Run the container cmd script with arguments. For example:
 * Run the HCD in a standalone mode with a local config file (The standalone config format is different than the container format):
 
 ```
-sbt "$subsystem;format="lower"$-$name;format="space,norm"$deploy/runMain $subsystem;format="lower"$.$name;format="space,norm,word"$deploy.$name;format="space,Camel"$ContainerCmdApp --standalone --local ./src/main/resources/$hcdComponentName;format="space,Camel"$Standalone.conf"
+sbt "$subsystem;format="lower"$-$name;format="space,norm"$deploy/runMain $subsystem;format="lower"$.$name;format="space,norm,word"$deploy.$name;format="space,Camel"$ContainerCmdApp --local ./src/main/resources/$hcdComponentName;format="space,Camel"$Standalone.conf"
 ```
 
 * Start the HCD and assembly in a container using the Java implementations:
