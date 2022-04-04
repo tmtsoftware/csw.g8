@@ -19,13 +19,14 @@ pipeline {
 
         stage('Publish Local') {
             steps {
-                sh "sbt clean publishLocal"
+                sh "cs java --jvm temurin:1.17.0 -version"
+                sh "eval \$(cs java --jvm temurin:1.17.0 --env) && sbt clean publishLocal"
             }
         }
 
         stage('Giter8 Compile') { // These tests cover the scenario of multiple components in multiple containers on different machines.
             steps {
-                sh "cd /tmp && rm -rf galil && sbt new tmtsoftware/csw.g8 --branch $VERSION --name=galil && cd galil && sbt clean test"
+                sh "cd /tmp && rm -rf galil && eval \$(cs java --jvm temurin:1.17.0 --env) && sbt new tmtsoftware/csw.g8 --branch $VERSION --name=galil && cd galil && sbt clean test"
             }
         }
 
