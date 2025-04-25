@@ -1,6 +1,6 @@
 package $subsystem;format="lower"$.$hcdComponentName;format="space,norm,word"$
 
-import csw.location.api.models.Connection.AkkaConnection
+import csw.location.api.models.Connection.PekkoConnection
 import csw.location.api.models.{ComponentId, ComponentType}
 import csw.prefix.models.Prefix
 import csw.testkit.scaladsl.CSWService.{AlarmServer, EventServer}
@@ -21,9 +21,9 @@ class $hcdComponentName;format="space,Camel"$Test extends ScalaTestFrameworkTest
   }
 
   test("HCD should be locatable using Location Service") {
-    val connection = AkkaConnection(ComponentId(Prefix("$subsystem$.$hcdComponentName;format="package"$"), ComponentType.HCD))
-    val akkaLocation = Await.result(locationService.resolve(connection, 10.seconds), 10.seconds).get
+    val connection = PekkoConnection(ComponentId(Prefix("$subsystem$.$hcdComponentName;format="package"$"), ComponentType.HCD))
+    val pekkoLocation = Await.result(locationService.resolve(connection, 10.seconds), 10.seconds).get
 
-    akkaLocation.connection shouldBe connection
+    pekkoLocation.connection shouldBe connection
   }
 }

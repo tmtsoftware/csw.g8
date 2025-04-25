@@ -1,6 +1,6 @@
 package $subsystem;format="lower"$.$assemblyComponentName;format="space,norm,word"$
 
-import csw.location.api.models.Connection.AkkaConnection
+import csw.location.api.models.Connection.PekkoConnection
 import csw.prefix.models.Prefix
 import csw.location.api.models.{ComponentId, ComponentType}
 import csw.testkit.scaladsl.CSWService.{AlarmServer, EventServer}
@@ -21,9 +21,9 @@ class $assemblyComponentName;format="space,Camel"$Test extends ScalaTestFramewor
   }
 
   test("Assembly should be locatable using Location Service") {
-    val connection = AkkaConnection(ComponentId(Prefix("$subsystem$.$assemblyComponentName;format="package"$"), ComponentType.Assembly))
-    val akkaLocation = Await.result(locationService.resolve(connection, 10.seconds), 10.seconds).get
+    val connection = PekkoConnection(ComponentId(Prefix("$subsystem$.$assemblyComponentName;format="package"$"), ComponentType.Assembly))
+    val pekkoLocation = Await.result(locationService.resolve(connection, 10.seconds), 10.seconds).get
 
-    akkaLocation.connection shouldBe connection
+    pekkoLocation.connection shouldBe connection
   }
 }

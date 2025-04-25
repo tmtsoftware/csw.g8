@@ -2,7 +2,7 @@ package $subsystem;format="lower"$.$hcdComponentName;format="space,norm,word"$;
 
 import csw.location.api.javadsl.ILocationService;
 import csw.location.api.javadsl.JComponentType;
-import csw.location.api.models.AkkaLocation;
+import csw.location.api.models.PekkoLocation;
 import csw.location.api.models.ComponentId;
 import csw.location.api.models.Connection;
 import csw.prefix.models.Prefix;
@@ -12,13 +12,13 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
-import org.scalatestplus.junit.JUnitSuite;
+import org.scalatestplus.testng.TestNGSuite;
 
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
-public class J$hcdComponentName;format="space,Camel"$Test extends JUnitSuite {
+public class J$hcdComponentName;format="space,Camel"$Test extends TestNGSuite {
 
     @ClassRule
     public static final FrameworkTestKitJunitResource testKit =
@@ -32,9 +32,9 @@ public class J$hcdComponentName;format="space,Camel"$Test extends JUnitSuite {
 
     @Test
     public void testHcdShouldBeLocatableUsingLocationService() throws ExecutionException, InterruptedException {
-        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.$hcdComponentName;format="package"$"), JComponentType.HCD));
+        Connection.PekkoConnection connection = new Connection.PekkoConnection(new ComponentId(Prefix.apply("$subsystem$.$hcdComponentName;format="package"$"), JComponentType.HCD));
         ILocationService locationService = testKit.jLocationService();
-        AkkaLocation location = locationService.resolve(connection, Duration.ofSeconds(10)).get().get();
+        PekkoLocation location = locationService.resolve(connection, Duration.ofSeconds(10)).get().get();
 
         Assert.assertEquals(location.connection(), connection);
     }

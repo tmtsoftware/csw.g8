@@ -12,8 +12,8 @@ The created project contains three subprojects:
 ### Install Coursier
 Install `coursier` using steps described [here](https://tmtsoftware.github.io/csw/apps/csinstallation.html) and add TMT channel.
 
-### Java 17
-Make sure that you upgraded to Java 17 and set it as a current JVM, installation details are [here](https://github.com/tmtsoftware/csw/blob/master/INSTALL.md#upgrading-to-java-17)
+### Java 21
+Make sure that you upgraded to Java 21 and set it as a current JVM, installation details are [here](https://github.com/tmtsoftware/csw/blob/master/INSTALL.md#upgrading-to-java-21)
 
 ### Install Giter8
 
