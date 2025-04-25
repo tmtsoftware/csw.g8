@@ -2,7 +2,7 @@ package $subsystem;format="lower"$.$assemblyComponentName;format="space,norm,wor
 
 import csw.location.api.javadsl.ILocationService;
 import csw.location.api.javadsl.JComponentType;
-import csw.location.api.models.AkkaLocation;
+import csw.location.api.models.PekkoLocation;
 import csw.location.api.models.ComponentId;
 import csw.location.api.models.Connection;
 import csw.prefix.models.Prefix;
@@ -32,9 +32,9 @@ public class J$assemblyComponentName;format="space,Camel"$Test extends TestNGSui
 
     @Test
     public void testAssemblyShouldBeLocatableUsingLocationService() throws ExecutionException, InterruptedException {
-        Connection.AkkaConnection connection = new Connection.AkkaConnection(new ComponentId(Prefix.apply("$subsystem$.$assemblyComponentName;format="package"$"), JComponentType.Assembly));
+        Connection.PekkoConnection connection = new Connection.PekkoConnection(new ComponentId(Prefix.apply("$subsystem$.$assemblyComponentName;format="package"$"), JComponentType.Assembly));
         ILocationService locationService = testKit.jLocationService();
-        AkkaLocation location = locationService.resolve(connection, Duration.ofSeconds(10)).get().get();
+        PekkoLocation location = locationService.resolve(connection, Duration.ofSeconds(10)).get().get();
 
         Assert.assertEquals(location.connection(), connection);
     }
