@@ -15,14 +15,14 @@ jobs:
 
     steps:
       - name: Checkout CSW repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: tmtsoftware/csw
 
-      - uses: coursier/setup-action@v1.2.0-M2
+      - uses: coursier/setup-action@v1.2.0
         with:
           jvm: temurin:1.21
-          apps: sbt sbtn giter8
+          apps: sbt giter8
       - uses: coursier/cache-action@v6
 
       - name: Cache ~/.cache
@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-coursier-
 
       - name: Cache ~/.sbt
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~/.sbt
           key: ${{ runner.os }}-sbt-${{ hashFiles('project/build.properties') }}

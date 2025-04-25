@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: coursier/setup-action@v1.2.0-M2
+      - uses: coursier/setup-action@v1.2.0
         with:
           jvm: temurin:1.21
           apps: sbt sbtn giter8
       - uses: coursier/cache-action@v6
 
       - name: Cache ~/.cache
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~/.cache
           key: ${{ runner.os }}-coursier-${{ hashFiles('project/Libs.scala') }}
@@ -26,7 +26,7 @@ jobs:
             ${{ runner.os }}-coursier-
 
       - name: Cache ~/.sbt
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~/.sbt
           key: ${{ runner.os }}-sbt-${{ hashFiles('project/build.properties') }}
