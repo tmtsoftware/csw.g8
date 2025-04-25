@@ -8,17 +8,17 @@ import csw.location.api.models.Connection;
 import csw.prefix.models.Prefix;
 import csw.testkit.javadsl.FrameworkTestKitJunitResource;
 import csw.testkit.javadsl.JCSWService;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.ClassRule;
-import org.junit.Test;
-import org.scalatestplus.junit.JUnitSuite;
+import org.testng.Assert;
+import org.testng.BeforeClass;
+import org.testng.ClassRule;
+import org.testng.Test;
+import org.scalatestplus.testng.TestNGSuite;
 
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
-public class J$assemblyComponentName;format="space,Camel"$Test extends JUnitSuite {
+public class J$assemblyComponentName;format="space,Camel"$Test extends TestNGSuite {
 
     @ClassRule
     public static final FrameworkTestKitJunitResource testKit =
